@@ -1,4 +1,4 @@
-//Function
+ï»¿//Function
 #include<iostream>
 using namespace std;
 
@@ -12,7 +12,7 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	int a, b;
-	cout << "Ââåäèòå äâà ÷èñëà: "; cin >> a >> b;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð²Ð° Ñ‡Ð¸ÑÐ»Ð°: "; cin >> a >> b;
 	int c = Sum(a, b);
 	cout << a << " + " << b << " = " << c << endl;
 	cout << a << " - " << b << " = " << Diff(a, b) << endl;
@@ -32,11 +32,11 @@ int Diff(int a, int b)
 }
 int Prod(int a, int b)
 {
-	//Product - Ïðîèçâåäåíèå
+	//Product - ÐŸÑ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ
 	return a * b;
 }
 double Quote(int a, int b)
 {
-	//Quotient - ×àñòíîå
+	//Quotient - Ð§Ð°ÑÑ‚Ð½Ð¾Ðµ
 	return (double)a / b;
 }
