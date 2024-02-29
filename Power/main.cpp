@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 
 double Power(double a, int n);
@@ -6,17 +6,16 @@ double Power(double a, int n);
 void main()
 {
 	setlocale(LC_ALL, "");
-	double a=0; //Основание степени
-	int n=0; //показатель степени
+	double a=0; //РћСЃРЅРѕРІР°РЅРёРµ СЃС‚РµРїРµРЅРё
+	int n=0; //РїРѕРєР°Р·Р°С‚РµР»СЊ СЃС‚РµРїРµРЅРё
+	cout << "Р’РІРµРґРёС‚Рµ РѕСЃРЅРѕРІР°РЅРёРµ СЃС‚РµРїРµРЅРё: "; cin >> a;
+	cout << "Р’РІРµРґРёС‚Рµ РїРѕРєР°Р·Р°С‚РµР»СЊ СЃС‚РµРїРµРЅРё: "; cin >> n;
 	cout << Power(a, n);
 }
 
 double Power(double a, int n)
 {
-	
-	double N = 1; //степень
-	cout << "Введите основание степени: "; cin >> a;
-	cout << "Введите показатель степени: "; cin >> n;
+	double N = 1; //СЃС‚РµРїРµРЅСЊ
 	if (n < 0)
 	{
 		a = 1 / a;
