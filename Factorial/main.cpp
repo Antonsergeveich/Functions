@@ -20,3 +20,12 @@ long long Factorial(short n)
 	}
 	return f;
 }
+long long int Factorial(int n)
+{
+	long long int f = 1;
+	for (int i = 1; i <= n; i++)
+	{
+		f*= i;
+	}
+	return f;
+}
