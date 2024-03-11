@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 
-int Sum(int a, int b);// Прототип функции , объявление функции, Function declaration
+int Sum(int a, int b, int c = 0);// Прототип функции , объявление функции, Function declaration
 int Diff(int a, int b);
 int Prod(int a, int b);
 double Quote(int a, int b);
@@ -15,7 +15,7 @@ double Power(double a, int n);
 void main()
 
 {
-	system("CLS");
+	system("CLS"); //system - вызывает любую команду Windows, CLS - очищает окно консоли
 	setlocale(LC_ALL, "");
 #ifdef CALC
 	int a, b;
@@ -46,7 +46,7 @@ main();
 }
 
 
-int Sum(int a, int b) //Реализация функции (определение функции - Function definition
+int Sum(int a, int b, int c) //Реализация функции (определение функции - Function definition
 {
 	int c = a + b;
 	return c;
