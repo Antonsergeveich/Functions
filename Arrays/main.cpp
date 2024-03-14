@@ -49,8 +49,7 @@ void main()
 	cout << endl;
 #endif // FillRand
 	FillRand(arr, n); // Заполняем массив случайными числами
-	cout << "Выводим массив на экран: "; Print(arr, n);
-	cout << endl;
+	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
 	cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
 	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
 	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
