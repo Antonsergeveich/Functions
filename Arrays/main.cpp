@@ -1,5 +1,4 @@
 ﻿#include<iostream>
-#include<Windows.h>
 using namespace std;
 
 void FillRand(int arr[], const int n);
