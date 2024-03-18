@@ -1,30 +1,43 @@
 ﻿#include<iostream>
 using namespace std;
 
-void FillRand(int arr[], const int n);
-void Print(int arr[], const int n);
-int Sum(int arr[], const int n);
-double Avg(int arr[], const int n);
-int minValueIn(int arr[], const int n);
-int maxValueIn(int arr[], const int n);
+void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
+void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
+void Print(const int arr[], const int n);
+void Print(const double arr[], const int n);
+int Sum(const int arr[], const int n);
+double Avg(const int arr[], const int n);
+int minValueIn( const int arr[], const int n);
+int maxValueIn(const int arr[], const int n);
 void shiftLeft(int arr[], const int n);
 void shiftRight(int arr[], const int n);
 #define tab "\t"
-//#define FillRand
 void main()
 {
 	setlocale(LC_ALL, "");
 	const int n = 5;
 	int arr[n];
-#ifdef FillRand
 	int minRand, maxRand;
-	do
+	/*do
 	{
 		cout << "Введите минимально возможное случайное число: "; cin >> minRand;
 		cout << "Введите максимально возможное случайное число: "; cin >> maxRand;
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
-
-	} while (minRand == maxRand);
+	} while (minRand == maxRand);*/
+	FillRand(arr, n); // Заполняем массив случайными числами
+	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
+	cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
+	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
+	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
+	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
+	cout << "Циклически сдвигаем массив на заданное число элементов влево :" << endl;
+    shiftLeft(arr, n);
+	cout << "Циклически сдвигаем массив на заданное число элементов вправо :" << endl;
+	shiftRight(arr, n);
+}
+ 
+void FillRand(int arr[], const int n, int minRand, int maxRand)
+{
 	if (maxRand < minRand)
 	{
 		int buffer = minRand;
@@ -41,59 +54,54 @@ void main()
 
 	}
 	//Вывод массива на экран:
-	for (int i = 0; i < n; i++)
+	/*for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << tab;
 	}
-	cout << endl;
-#endif // FillRand
-	FillRand(arr, n); // Заполняем массив случайными числами
-	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
-	cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
-	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
-	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
-	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
-	cout << "Циклически сдвигаем массив на заданное число элементов влево :" << endl;
-    shiftLeft(arr, n);
-	cout << "Циклически сдвигаем массив на заданное число элементов вправо :" << endl;
-	shiftRight(arr, n);
+	cout << endl;*/
 }
- 
-void FillRand(int arr[], const int n)
+void FillRand(double arr[], const int n, int minRand, int maxRand)
 {
+	if (maxRand < minRand)
+	{
+		int buffer = minRand;
+		minRand = maxRand;
+		maxRand = buffer;
+	}
+	
 	for (int i = 0; i < n; i++)
 	{
-		arr[i] = rand();
+		arr[i] = minRand + rand() % (maxRand - minRand);
 	}
 }
-void Print(int arr[], const int n)
+void Print(const int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << "\t";
 	}
 }
-int Sum(int arr[], const int n)
+void Print(const double arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+}
+int Sum( const int arr[], const int n)
 {
 	int sum = 0;
 	for (int i = 0; i < n; i++)
 	{
-		sum = sum + arr[i];
+		sum += arr[i];
 	}
-	return(sum);
+	return sum;
 }
-double Avg(int arr[], const int n)
+double Avg(const int arr[], const int n)
 {
-	double s = 0;
-	double sa;
-	for (int i = 0; i < n; i++)
-	{
-		s = s + arr[i];
-	}
-	sa = s / n;
-	return(sa);
+		return (double)Sum(arr, n) / n;
 }
-int minValueIn(int arr[], const int n)
+int minValueIn(const int arr[], const int n)
 {
 	int min;
 	min = arr[0];
@@ -101,9 +109,9 @@ int minValueIn(int arr[], const int n)
 	{
 		if (arr[i] < min)min = arr[i];
 	}
-	return (min);
+	return min;
 }
-int maxValueIn(int arr[], const int n)
+int maxValueIn(const int arr[], const int n)
 {
 	int max;
     max = arr[0];
@@ -111,7 +119,7 @@ int maxValueIn(int arr[], const int n)
 	{
 		if (arr[i] > max)max = arr[i];
 	}
-	return (max);
+	return max;
 }
 void shiftLeft(int arr[], const int n)
 {
@@ -146,4 +154,5 @@ void shiftRight(int arr[], const int n)
 		}
 		cout << endl;
 	}
+	
 }
