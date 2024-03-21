@@ -76,7 +76,7 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 {
 	if (maxRand < minRand)
 	{
-		int buffer = minRand;
+		double buffer = minRand;
 		minRand = maxRand;
 		maxRand = buffer;
 	}
