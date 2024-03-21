@@ -31,7 +31,7 @@ void main()
 		cout << "Введите максимально возможное случайное число: "; cin >> maxRand;
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
 	} while (minRand == maxRand);*/
-	FillRand(arr, n); // Заполняем массив случайными числами
+	FillRand(arr, n); 
 	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
 	cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
 	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
@@ -56,7 +56,6 @@ void main()
 	cout << "Сдвиг массива вправо: " << endl;
 	shiftRight(brr, m); cout << endl;
 }
- 
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 	if (maxRand < minRand)
@@ -65,7 +64,6 @@ void FillRand(int arr[], const int n, int minRand, int maxRand)
 		minRand = maxRand;
 		maxRand = buffer;
 	}
-	//Заполнение массива случайными числами:
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = minRand + rand() % (maxRand - minRand);
@@ -73,12 +71,6 @@ void FillRand(int arr[], const int n, int minRand, int maxRand)
 		//Функция rand() генерирует псевдослучайное число в диапазоне от 0 до 32 767 (RAND_MAX)
 		//Это псевдослучайное число можно вывести на экран, сохранить в переменную, или элемент массива
 	}
-	//Вывод массива на экран:
-	/*for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;*/
 }
 void FillRand(double arr[], const int n, int minRand, int maxRand)
 {
@@ -128,7 +120,6 @@ double Sum( const double arr[], const int n)
 	}
 	return sum;
 }
-
 double Avg(const int arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
@@ -228,7 +219,6 @@ void shiftRight(int arr[], const int n)
 		cout << endl;
 	}
 }
-
 void shiftRight(double arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
