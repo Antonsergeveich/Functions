@@ -11,6 +11,7 @@ int minValueIn( const int arr[], const int n);
 int maxValueIn(const int arr[], const int n);
 void shiftLeft(int arr[], const int n);
 void shiftRight(int arr[], const int n);
+
 #define tab "\t"
 void main()
 {
