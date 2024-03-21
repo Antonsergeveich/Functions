@@ -6,11 +6,17 @@ void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
 void Print(const int arr[], const int n);
 void Print(const double arr[], const int n);
 int Sum(const int arr[], const int n);
+double Sum( const double arr[], const int n);
 double Avg(const int arr[], const int n);
+double Avg(const double arr[], const int n);
 int minValueIn( const int arr[], const int n);
+double minValueIn( const double arr[], const int n);
 int maxValueIn(const int arr[], const int n);
+double maxValueIn(const double arr[], const int n);
 void shiftLeft(int arr[], const int n);
+void shiftLeft(double arr[], const int n);
 void shiftRight(int arr[], const int n);
+void shiftRight(double arr[], const int n);
 
 #define tab "\t"
 void main()
@@ -35,6 +41,20 @@ void main()
     shiftLeft(arr, n);
 	cout << "Циклически сдвигаем массив на заданное число элементов вправо :" << endl;
 	shiftRight(arr, n);
+	cout << endl;
+	
+	const int m = 5;
+	double brr[m];
+	FillRand(brr, m);
+	cout << "Массив double элементов: "; Print(brr, m); cout << endl;
+	cout << "Сумма элементов массива: " << Sum(brr, m); cout << endl;
+	cout << "Среднее арифметическое элементов массива: " << Avg(brr, m); cout << endl;
+	cout << "Минимальное значение в массиве: "; cout <<  minValueIn(brr, m); cout << endl;
+	cout << "Максимальное значение в массиве: "; cout << maxValueIn(brr, m); cout << endl;
+	cout << "Сдвиг массива влево: " << endl;
+    shiftLeft(brr, m); cout << endl;
+	cout << "Сдвиг массива вправо: " << endl;
+	shiftRight(brr, m); cout << endl;
 }
  
 void FillRand(int arr[], const int n, int minRand, int maxRand)
@@ -69,10 +89,12 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		minRand = maxRand;
 		maxRand = buffer;
 	}
-	
+	minRand *= 100;
+	maxRand *= 100;
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = minRand + rand() % (maxRand - minRand);
+		arr[i] /= 100;
 	}
 }
 void Print(const int arr[], const int n)
@@ -98,13 +120,37 @@ int Sum( const int arr[], const int n)
 	}
 	return sum;
 }
+double Sum( const double arr[], const int n)
+{
+	double sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += arr[i];
+	}
+	return sum;
+}
+
 double Avg(const int arr[], const int n)
 {
-		return (double)Sum(arr, n) / n;
+	return (double)Sum(arr, n) / n;
+}
+double Avg(const double arr[], const int n)
+{
+	return Sum(arr, n) / n;
 }
 int minValueIn(const int arr[], const int n)
 {
 	int min;
+	min = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < min)min = arr[i];
+	}
+	return min;
+}
+double minValueIn(const double arr[], const int n)
+{
+	double min;
 	min = arr[0];
 	for (int i = 0; i < n; i++)
 	{
@@ -122,11 +168,38 @@ int maxValueIn(const int arr[], const int n)
 	}
 	return max;
 }
+double maxValueIn(const double arr[], const int n)
+{
+	double max;
+	max = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > max)max = arr[i];
+	}
+	return max;
+}
 void shiftLeft(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
 		int buffer = arr[0];
+		for (int i = 0; i < n; i++)
+		{
+			arr[i] = arr[i + 1];
+		}
+		arr[n - 1] = buffer;
+		for (int i = 0; i < n; i++)
+		{
+			cout << arr[i] << "\t";
+		}
+		cout << endl;
+	}
+}
+void shiftLeft(double arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		double buffer = arr[0];
 		for (int i = 0; i < n; i++)
 		{
 			arr[i] = arr[i + 1];
@@ -155,5 +228,22 @@ void shiftRight(int arr[], const int n)
 		}
 		cout << endl;
 	}
-	
+}
+
+void shiftRight(double arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		double buffer = arr[n - 1];
+		for (int i = n - 2; i >= 0; i--)
+		{
+			arr[i + 1] = arr[i];
+		}
+		arr[0] = buffer;
+		for (int i = 0; i < n; i++)
+		{
+			cout << arr[i] << "\t";
+		}
+		cout << endl;
+	}
 }
