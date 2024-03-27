@@ -3,18 +3,25 @@ using namespace std;
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
+
 void Print(const int arr[], const int n);
 void Print(const double arr[], const int n);
+
 int Sum(const int arr[], const int n);
 double Sum( const double arr[], const int n);
+
 double Avg(const int arr[], const int n);
 double Avg(const double arr[], const int n);
+
 int minValueIn( const int arr[], const int n);
 double minValueIn( const double arr[], const int n);
+
 int maxValueIn(const int arr[], const int n);
 double maxValueIn(const double arr[], const int n);
+
 void shiftLeft(int arr[], const int n);
 void shiftLeft(double arr[], const int n);
+
 void shiftRight(int arr[], const int n);
 void shiftRight(double arr[], const int n);
 
@@ -32,7 +39,7 @@ void main()
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
 	} while (minRand == maxRand);*/
 	FillRand(arr, n); 
-	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
+	cout << "Выводим массив на экран: "; Print(arr, n); 
 	cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
 	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
 	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
@@ -46,13 +53,13 @@ void main()
 	const int m = 5;
 	double brr[m];
 	FillRand(brr, m);
-	cout << "Массив double элементов: "; Print(brr, m); cout << endl;
-	cout << "Сумма элементов массива: " << Sum(brr, m); cout << endl;
-	cout << "Среднее арифметическое элементов массива: " << Avg(brr, m); cout << endl;
-	cout << "Минимальное значение в массиве: "; cout <<  minValueIn(brr, m); cout << endl;
-	cout << "Максимальное значение в массиве: "; cout << maxValueIn(brr, m); cout << endl;
+	cout << "Массив double элементов: "; Print(brr, m);
+	cout << "Сумма элементов массива: " << Sum(brr, m) << endl;
+	cout << "Среднее арифметическое элементов массива: " << Avg(brr, m) << endl;
+	cout << "Минимальное значение в массиве: "; cout <<  minValueIn(brr, m) << endl;
+	cout << "Максимальное значение в массиве: "; cout << maxValueIn(brr, m) << endl;
 	cout << "Сдвиг массива влево: " << endl;
-    shiftLeft(brr, m); cout << endl;
+	shiftLeft(brr, m); cout << endl;
 	cout << "Сдвиг массива вправо: " << endl;
 	shiftRight(brr, m); cout << endl;
 }
@@ -94,6 +101,7 @@ void Print(const int arr[], const int n)
 	{
 		cout << arr[i] << "\t";
 	}
+	cout << endl;
 }
 void Print(const double arr[], const int n)
 {
@@ -101,6 +109,7 @@ void Print(const double arr[], const int n)
 	{
 		cout << arr[i] << "\t";
 	}
+	cout << endl;
 }
 int Sum( const int arr[], const int n)
 {
