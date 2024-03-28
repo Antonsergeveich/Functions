@@ -1,11 +1,19 @@
 ﻿#include<iostream>
 using namespace std;
 
+#define tab "\t"
+#define delimiter "\n----------------------------------------------------------------\n"
+
+	const int ROWS = 3; //количество строк
+	const int COLS = 4; //количество элементов строки
+
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
 
 void Print(const int arr[], const int n);
 void Print(const double arr[], const int n);
+void Print(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int Sum(const int arr[], const int n);
 double Sum( const double arr[], const int n);
@@ -25,12 +33,11 @@ void shiftLeft(double arr[], const int n);
 void shiftRight(int arr[], const int n);
 void shiftRight(double arr[], const int n);
 
-#define tab "\t"
 void main()
 {
 	setlocale(LC_ALL, "");
-	const int n = 5;
-	int arr[n];
+	const int I_SIZE = 5;
+	int i_arr[I_SIZE];
 	int minRand, maxRand;
 	/*do
 	{
@@ -38,30 +45,44 @@ void main()
 		cout << "Введите максимально возможное случайное число: "; cin >> maxRand;
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
 	} while (minRand == maxRand);*/
-	FillRand(arr, n); 
-	cout << "Выводим массив на экран: "; Print(arr, n); 
-	cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
-	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
-	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
-	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
+	FillRand(i_arr, I_SIZE); 
+	cout << "Выводим массив на экран: "; Print(i_arr, I_SIZE); 
+	cout << "Возвращаем сумму всех элементов массива: " << Sum(i_arr, I_SIZE) << endl;
+	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(i_arr, I_SIZE) << endl;
+	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(i_arr, I_SIZE) << endl;
+	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(i_arr, I_SIZE) << endl;
 	cout << "Циклически сдвигаем массив на заданное число элементов влево :" << endl;
-    shiftLeft(arr, n);
+    shiftLeft(i_arr, I_SIZE);
 	cout << "Циклически сдвигаем массив на заданное число элементов вправо :" << endl;
-	shiftRight(arr, n);
+	shiftRight(i_arr, I_SIZE);
 	cout << endl;
+
+	cout << delimiter << endl;
 	
-	const int m = 5;
-	double brr[m];
-	FillRand(brr, m);
-	cout << "Массив double элементов: "; Print(brr, m);
-	cout << "Сумма элементов массива: " << Sum(brr, m) << endl;
-	cout << "Среднее арифметическое элементов массива: " << Avg(brr, m) << endl;
-	cout << "Минимальное значение в массиве: "; cout <<  minValueIn(brr, m) << endl;
-	cout << "Максимальное значение в массиве: "; cout << maxValueIn(brr, m) << endl;
+	const int D_SIZE = 5;
+	double d_arr[D_SIZE];
+	int i_arr_2[ROWS][COLS];
+
+	//Заполнение массива случайными числами:
+	FillRand(i_arr_2, ROWS, COLS);
+
+	//Вывод двумерного массива на экран:
+	Print(i_arr_2, ROWS, COLS);
+
+	cout << delimiter << endl;
+
+	FillRand(d_arr, D_SIZE);
+	cout << "Массив double элементов: "; Print(d_arr, D_SIZE);
+	cout << "Сумма элементов массива: " << Sum(d_arr, D_SIZE) << endl;
+	cout << "Среднее арифметическое элементов массива: " << Avg(d_arr, D_SIZE) << endl;
+	cout << "Минимальное значение в массиве: "; cout <<  minValueIn(d_arr, D_SIZE) << endl;
+	cout << "Максимальное значение в массиве: "; cout << maxValueIn(d_arr, D_SIZE) << endl;
 	cout << "Сдвиг массива влево: " << endl;
-	shiftLeft(brr, m); cout << endl;
+	shiftLeft(d_arr, D_SIZE); cout << endl;
 	cout << "Сдвиг массива вправо: " << endl;
-	shiftRight(brr, m); cout << endl;
+	shiftRight(d_arr, D_SIZE); cout << endl;
+
+	cout << delimiter << endl;
 }
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
@@ -95,6 +116,16 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		arr[i] /= 100;
 	}
 }
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
+	}
+}
 void Print(const int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
@@ -110,6 +141,17 @@ void Print(const double arr[], const int n)
 		cout << arr[i] << "\t";
 	}
 	cout << endl;
+}
+void Print(const int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
+	}
 }
 int Sum( const int arr[], const int n)
 {
