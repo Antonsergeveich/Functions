@@ -4,8 +4,8 @@ using namespace std;
 #define tab "\t"
 #define delimiter "\n----------------------------------------------------------------\n"
 
-	const int ROWS = 3; //количество строк
-	const int COLS = 4; //количество элементов строки
+const int ROWS = 3; //количество строк
+const int COLS = 4; //количество элементов строки
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
@@ -17,18 +17,23 @@ void Print(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int Sum(const int arr[], const int n);
 double Sum( const double arr[], const int n);
+int Sum(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 double Avg(const int arr[], const int n);
 double Avg(const double arr[], const int n);
+double Avg(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int minValueIn( const int arr[], const int n);
 double minValueIn( const double arr[], const int n);
+int minValueIn(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int maxValueIn(const int arr[], const int n);
 double maxValueIn(const double arr[], const int n);
+int maxValueIn(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void shiftLeft(int arr[], const int n);
 void shiftLeft(double arr[], const int n);
+void shiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void shiftRight(int arr[], const int n);
 void shiftRight(double arr[], const int n);
@@ -68,6 +73,18 @@ void main()
 
 	//Вывод двумерного массива на экран:
 	Print(i_arr_2, ROWS, COLS);
+
+	cout << Sum(i_arr_2, ROWS, COLS) << endl;
+
+	cout << Avg(i_arr_2, ROWS, COLS) << endl;
+
+	cout << minValueIn(i_arr_2, ROWS, COLS) << endl;
+
+	cout << maxValueIn(i_arr_2, ROWS, COLS) << endl;
+
+	cout << endl;
+
+	shiftLeft(i_arr_2, ROWS, COLS);
 
 	cout << delimiter << endl;
 
@@ -171,6 +188,19 @@ double Sum( const double arr[], const int n)
 	}
 	return sum;
 }
+int Sum(const int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	int sum = 0;
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			sum += arr[i][j];
+		}
+		cout << endl;
+	}
+	return sum;
+}
 double Avg(const int arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
@@ -178,6 +208,10 @@ double Avg(const int arr[], const int n)
 double Avg(const double arr[], const int n)
 {
 	return Sum(arr, n) / n;
+}
+double Avg(const int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	return (double)Sum(arr, ROWS, COLS) / (ROWS*COLS);
 }
 int minValueIn(const int arr[], const int n)
 {
@@ -199,6 +233,20 @@ double minValueIn(const double arr[], const int n)
 	}
 	return min;
 }
+int minValueIn(const int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	int min;
+	min = arr[0][0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] < min)min = arr[i][j];
+		}
+		cout << endl;
+	}
+	return min;
+}
 int maxValueIn(const int arr[], const int n)
 {
 	int max;
@@ -216,6 +264,20 @@ double maxValueIn(const double arr[], const int n)
 	for (int i = 0; i < n; i++)
 	{
 		if (arr[i] > max)max = arr[i];
+	}
+	return max;
+}
+int maxValueIn(const int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	int max;
+	max = arr[0][0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] > max)max = arr[i][j];
+		}
+		cout << endl;
 	}
 	return max;
 }
@@ -249,6 +311,24 @@ void shiftLeft(double arr[], const int n)
 		for (int i = 0; i < n; i++)
 		{
 			cout << arr[i] << "\t";
+		}
+		cout << endl;
+	}
+}
+void shiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < COLS; i++)
+	{
+		int buffer = arr[0][0];
+		for (int i = 0; i < COLS; i++)
+		{
+			arr[i][i] = arr[i][i + 1];
+		}
+		arr[i][i] = buffer;
+		//Print(arr, ROWS, COLS);
+		for (int i = 0; i < COLS; i++)
+		{
+			cout << arr[i][i] << "\t";
 		}
 		cout << endl;
 	}
