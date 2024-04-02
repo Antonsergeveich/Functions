@@ -30,7 +30,7 @@ char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 double Avg(const int arr[], const int n);
 double Avg(const double arr[], const int n);
-double Avg(const char arr[], const int n);
+//double Avg(const char arr[], const int n);
 double Avg(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(const double arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(const char arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -62,6 +62,7 @@ void shiftRight(int arr[], const int n, int number_of_shifts);
 void shiftRight(double arr[], const int n, int number_of_shifts);
 void shiftRight(char arr[], const int n, int number_of_shifts);
 void shiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
+void shiftRight_1(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 
@@ -317,7 +318,7 @@ double Sum(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 }
 char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	char sum = 0;
+	int sum = 0;
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
@@ -335,10 +336,10 @@ double Avg(const double arr[], const int n)
 {
 	return Sum(arr, n) / n;
 }
-double Avg(const char arr[], const int n)
-{
-	return Sum(arr, n) / n; 
-}
+//double Avg(const char arr[], const int n)
+//{
+//	return Sum(arr, n) / n; 
+//}
 double Avg(const int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	return (double)Sum(arr, ROWS, COLS) / (ROWS*COLS);
@@ -347,10 +348,10 @@ double Avg(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	return (double)Sum(arr, ROWS, COLS) / (ROWS * COLS);
 }
-double Avg(const char arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	return (double)Sum(arr, ROWS, COLS) / (ROWS * COLS);
-}
+//double Avg(const char arr[ROWS][COLS], const int ROWS, const int COLS)
+//{
+//	return (double)Sum(arr, ROWS, COLS) / (ROWS * COLS);
+//}
 int minValueIn(const int arr[], const int n)
 {
 	int min;
@@ -614,7 +615,7 @@ void shiftRight(int arr[], const int n, int number_of_shifts)
 		arr[0] = buffer;
 	}
 }
-void shiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
+void shiftRight_1(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
 {
 	for (int i = 0; i < number_of_shifts; i++)
 	{
