@@ -3,9 +3,9 @@ using namespace std;
 
 #define tab "\t"
 #define delimiter "\n----------------------------------------------------------------\n"
-//#define I_ARR
+#define I_ARR
 //#define D_ARR
-#define I_ARR_2
+//#define I_ARR_2
 
 const int ROWS = 3; //количество строк
 const int COLS = 4; //количество элементов строки
@@ -73,6 +73,8 @@ void shiftRight_2(int arr[ROWS][COLS], const int ROWS, const int COLS, int numbe
 void shiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 //void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 
+void Sort(int arr[], const int n);
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -102,6 +104,8 @@ void main()
 	shiftRight(i_arr, I_SIZE, number_of_shifts);
 	Print(i_arr, I_SIZE);
 	cout << endl;
+	Sort(i_arr, I_SIZE);
+	Print(i_arr, I_SIZE);
 	cout << delimiter << endl;
 #endif // I_ARR
 
@@ -122,7 +126,7 @@ void main()
 
 	int number_of_shifts;
 	cout << "Введите количество сдвигов влево: "; cin >> number_of_shifts;
-	shiftLeft_arr3(i_arr_2, ROWS, COLS, number_of_shifts);
+	shiftLeft(i_arr_2, ROWS, COLS, number_of_shifts);
 	Print(i_arr_2, ROWS, COLS);
 
 	cout << "Введите количество сдвигов вправо: "; cin >> number_of_shifts;
@@ -759,6 +763,20 @@ void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number
 				arr[i][x] = arr[i][x - 1];
 			}
 			arr[i][0] = buffer;
+		}
+	}
+}
+
+void Sort(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n - 1 - i; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				arr[j + 1] = arr[j];
+			}
 		}
 	}
 }
