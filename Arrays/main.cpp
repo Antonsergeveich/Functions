@@ -775,7 +775,9 @@ void Sort(int arr[], const int n)
 		{
 			if (arr[j] > arr[j + 1])
 			{
-				arr[j + 1] = arr[j];
+		        int buffer = arr[j];
+				arr[j]= arr[j+1];
+				arr[j + 1] = buffer;
 			}
 		}
 	}
