@@ -26,36 +26,35 @@ void Print(char arr[ROWS][COLS],  const int ROWS, const int COLS);
 
 int Sum(const int arr[], const int n);
 double Sum(const double arr[], const int n);
-//char Sum(char arr[], const int n);
+char Sum(char arr[], const int n);
 int Sum(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Sum(const double arr[ROWS][COLS], const int ROWS, const int COLS);
-//char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
+char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 double Avg(const int arr[], const int n);
 double Avg(const double arr[], const int n);
-//double Avg(const char arr[], const int n);
 double Avg(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(const double arr[ROWS][COLS], const int ROWS, const int COLS);
-//double Avg(const char arr[ROWS][COLS], const int ROWS, const int COLS);
+double Avg(const char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int minValueIn( const int arr[], const int n);
 double minValueIn( const double arr[], const int n);
-//char minValueIn(char arr[], const int n);
+char minValueIn(char arr[], const int n);
 int minValueIn(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 double minValueIn(const double arr[ROWS][COLS], const int ROWS, const int COLS);
-//char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+char minValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int maxValueIn(const int arr[], const int n);
 double maxValueIn(const double arr[], const int n);
-//char maxValueIn(char arr[], const int n);
+char maxValueIn(char arr[], const int n);
 int maxValueIn(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 double maxValueIn(const double arr[ROWS][COLS], const int ROWS, const int COLS);
-//char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
+char maxValueIn(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void shiftLeft(int arr[], const int n, int number_of_shifts);
 void shiftLeft(double arr[], const int n, int number_of_shift);
-//void shiftLeft(char arr[], const int n, int number_of_shifts);
-//void shiftLeft(char arr[ROWS][COLS], const int ROWS,const int COLS, int number_of_shifts);
+void shiftLeft(char arr[], const int n, int number_of_shifts);
+void shiftLeft(char arr[ROWS][COLS], const int ROWS,const int COLS, int number_of_shifts);
 void shiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftLeft_arr1(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftLeft_arr2(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
@@ -66,22 +65,22 @@ void shiftRight(int arr[], const int n, int number_of_shifts);
 void shiftRight_1(int arr[], const int n, int number_of_shifts);
 void shiftRight(double arr[], const int n, int number_of_shifts);
 void shiftRight_1(double arr[], const int n, int number_of_shifts);
-//void shiftRight(char arr[], const int n, int number_of_shifts);
+void shiftRight(char arr[], const int n, int number_of_shifts);
 void shiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftRight_1(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftRight_2(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
-//void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
+void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 
+void Sortbuble(int arr[], const int n);
 void Sort(int arr[], const int n);
-
 void main()
 {
 	setlocale(LC_ALL, "");
 #ifdef I_ARR
 	const int I_SIZE = 10;
 	int i_arr[I_SIZE];
-	int minRand, maxRand;
+	int minRand = 0, maxRand = 0;
 	/*do
 	{
 		cout << "Введите минимально возможное случайное число: "; cin >> minRand;
@@ -308,7 +307,7 @@ double Sum( const double arr[], const int n)
 	}
 	return sum;
 }
-char Sum(char arr[], const int n)
+char Sum(const char arr[], const int n)
 {
 	char sum = 0;
 	for (int i = 0; i < n; i++)
@@ -341,7 +340,7 @@ double Sum(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 	}
 	return sum;
 }
-char Sum(char arr[ROWS][COLS], const int ROWS, const int COLS)
+char Sum(const char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	int sum = 0;
 	for (int i = 0; i < ROWS; i++)
@@ -362,10 +361,10 @@ double Avg(const double arr[], const int n)
 {
 	return Sum(arr, n) / n;
 }
-//double Avg(const char arr[], const int n)
-//{
-//	return Sum(arr, n) / n; 
-//}
+double Avg(const char arr[], const int n)
+{
+	return Sum(arr, n) / n; 
+}
 
 double Avg(const int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
@@ -375,10 +374,10 @@ double Avg(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	return (double)Sum(arr, ROWS, COLS) / (ROWS * COLS);
 }
-//double Avg(const char arr[ROWS][COLS], const int ROWS, const int COLS)
-//{
-//	return (double)Sum(arr, ROWS, COLS) / (ROWS * COLS);
-//}
+double Avg(const char arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	return (double)Sum(arr, ROWS, COLS) / (ROWS * COLS);
+}
 
 int minValueIn(const int arr[], const int n)
 {
@@ -527,7 +526,7 @@ void shiftLeft(int arr[], const int n, int number_of_shifts)
 	for (int i = 0; i < number_of_shifts; i++)
 	{
 		int buffer = arr[0];
-		for (int i = 0; i < n; i++)
+		for (int i = 1; i < n; i++)
 		{
 			arr[i-1] = arr[i];
 		}
@@ -767,7 +766,7 @@ void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number
 	}
 }
 
-void Sort(int arr[], const int n)
+void Sortbuble(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -778,6 +777,24 @@ void Sort(int arr[], const int n)
 		        int buffer = arr[j];
 				arr[j]= arr[j+1];
 				arr[j + 1] = buffer;
+			}
+		}
+	}
+}
+
+void Sort(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++) // счётчик i выбирает элемент массива в который будет помещено минимальное значение
+	{
+		for (int j = i + 1; j < n; j++) // счётчик j перебирает оставшиеся элементы массива
+		{
+			//arr[i] выбранный элемент массива
+			//arr[j] перебираемый элемент массива
+			if (arr[j] < arr[i])
+			{
+				int buffer = arr[i];
+				arr[i] = arr[j];
+				arr[j] = buffer;
 			}
 		}
 	}
