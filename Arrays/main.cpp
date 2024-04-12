@@ -6,7 +6,7 @@ using namespace std;
 //#define I_ARR
 //#define D_ARR
 #define I_ARR_2
-
+//#define CHAR
 const int ROWS = 3; //количество строк
 const int COLS = 4; //количество элементов строки
 
@@ -76,6 +76,7 @@ void bubble_Sort(int arr[], const int n);
 void bubble_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS); //построчная
 void bubble_Sort_1(int arr[ROWS][COLS], const int ROWS, const int COLS); //сквозная
 void selection_Sort(int arr[], const int n);
+void selection_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS); //сквозная
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -125,7 +126,7 @@ void main()
 
 	cout << "Максимальное значение в массиве: " << maxValueIn(i_arr_2, ROWS, COLS) << endl;
 
-	int number_of_shifts;
+	/*int number_of_shifts;
 	cout << "Введите количество сдвигов влево: "; cin >> number_of_shifts;
 	shiftLeft(i_arr_2, ROWS, COLS, number_of_shifts);
 	Print(i_arr_2, ROWS, COLS);
@@ -137,12 +138,16 @@ void main()
 	cout << "Сортируем массив построчно: " << endl;
 	bubble_Sort(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
+	cout << endl;*/
 
-	cout << "Сортируем массив насквозь: " << endl;
+	cout << "Сквозная пузырьковая сортировка : " << endl;
 	bubble_Sort_1(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
-	
-	cout << delimiter << endl;
+
+	/*cout << "Сквозная сортировка выбором: " << endl;
+	selection_Sort(i_arr_2, ROWS, COLS);
+	Print(i_arr_2, ROWS, COLS);
+	cout << delimiter << endl;*/
 #endif // I_ARR_2
 
 
@@ -163,6 +168,13 @@ void main()
 	Print(d_arr, D_SIZE);
 	cout << delimiter << endl;
 #endif // 
+#ifdef CHAR
+	const char SYMBOL = 10;
+	char s[SYMBOL];
+	int minRand = 0, maxRand = 0;
+	FillRand(s, SYMBOL, minRand, maxRand);
+	Print(s, SYMBOL);
+#endif // CHAR
 
 }
 void FillRand(int arr[], const int n, int minRand, int maxRand)
@@ -820,21 +832,22 @@ void bubble_Sort_1(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			for (int i = 0; i < ROWS; i++)
+			for (int k = 0; k < ROWS; k++)
 			{
-				for (int j = 0 ; j < COLS; j++)
+				for (int l = 0 ; l < COLS; l++)
 				{
-					if (j + 1 == COLS)  
+					if (k + 1 == ROWS and l + 1 == COLS)continue;
+					if (l + 1 == COLS)  
 					{
-					    int buffer = arr[i][j];
-						arr[i][j] = arr[i + 1][0];
-						arr[i + 1][0] = buffer;
+					    int buffer = arr[k][l];
+						arr[k][l] = arr[k + 1][0];
+						arr[k + 1][0] = buffer;
 					}
-				    if (arr[i][j] > arr[i][j + 1])
+				    if (arr[k][l] > arr[k][l + 1])
 					{
-					    int buffer = arr[i][j];
-						arr[i][j] = arr[i][j+1];
-						arr[i][j+1] = buffer;
+					    int buffer = arr[k][l];
+						arr[k][l] = arr[k][l+1];
+						arr[k][l+1] = buffer;
 					}
 				}
 			}
@@ -855,6 +868,34 @@ void selection_Sort(int arr[], const int n)
 				int buffer = arr[i];
 				arr[i] = arr[j];
 				arr[j] = buffer;
+			}
+		}
+	}
+}
+
+void selection_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	//Эти два цикла выбирают элемент
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			//Эти два цикла перебирают оставшиеся элементы в поиске минимального значения
+			for (int k = i; k < ROWS; k++)
+			{
+				for (int l = k == i ? j + 1 : 0; l < COLS; l++)
+				{
+					/*if (k == i && l == 0)l = j + 1;
+					if (l == COLS)break;*/
+					//arr[i][j] - выбранный элемент
+					//arr[k][l] - перебираемый элемент
+					if (arr[i][j] > arr[k][l])
+					{
+						int buffer = arr[i][j];
+						arr[i][j] = arr[k][l];
+						arr[k][l] = buffer;
+					}
+				}
 			}
 		}
 	}
