@@ -3,9 +3,9 @@ using namespace std;
 
 #define tab "\t"
 #define delimiter "\n----------------------------------------------------------------\n"
-#define I_ARR
+//#define I_ARR
 //#define D_ARR
-//#define I_ARR_2
+#define I_ARR_2
 
 const int ROWS = 3; //количество строк
 const int COLS = 4; //количество элементов строки
@@ -55,10 +55,10 @@ void shiftLeft(int arr[], const int n, int number_of_shifts);
 void shiftLeft(double arr[], const int n, int number_of_shift);
 void shiftLeft(char arr[], const int n, int number_of_shifts);
 void shiftLeft(char arr[ROWS][COLS], const int ROWS,const int COLS, int number_of_shifts);
-void shiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
-void shiftLeft_arr1(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
-void shiftLeft_arr2(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
-void shiftLeft_arr3(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
+void shiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);      //построчный
+void shiftLeft_arr1(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts); //сквозной
+void shiftLeft_arr2(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts); //построчный
+void shiftLeft_arr3(int arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts); //сквозной
 void shiftLeft(double arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 
 void shiftRight(int arr[], const int n, int number_of_shifts);
@@ -72,8 +72,10 @@ void shiftRight_2(int arr[ROWS][COLS], const int ROWS, const int COLS, int numbe
 void shiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts);
 
-void Sortbuble(int arr[], const int n);
-void Sort(int arr[], const int n);
+void bubble_Sort(int arr[], const int n);
+void bubble_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS); //построчная
+void bubble_Sort_1(int arr[ROWS][COLS], const int ROWS, const int COLS); //сквозная
+void selection_Sort(int arr[], const int n);
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -103,7 +105,7 @@ void main()
 	shiftRight(i_arr, I_SIZE, number_of_shifts);
 	Print(i_arr, I_SIZE);
 	cout << endl;
-	Sort(i_arr, I_SIZE);
+	selection_Sort(i_arr, I_SIZE);
 	Print(i_arr, I_SIZE);
 	cout << delimiter << endl;
 #endif // I_ARR
@@ -132,6 +134,14 @@ void main()
 	shiftRight_2(i_arr_2, ROWS, COLS, number_of_shifts);
 	Print(i_arr_2, ROWS, COLS);
 
+	cout << "Сортируем массив построчно: " << endl;
+	bubble_Sort(i_arr_2, ROWS, COLS);
+	Print(i_arr_2, ROWS, COLS);
+
+	cout << "Сортируем массив насквозь: " << endl;
+	bubble_Sort_1(i_arr_2, ROWS, COLS);
+	Print(i_arr_2, ROWS, COLS);
+	
 	cout << delimiter << endl;
 #endif // I_ARR_2
 
@@ -766,7 +776,7 @@ void shiftRight(char arr[ROWS][COLS], const int ROWS, const int COLS, int number
 	}
 }
 
-void Sortbuble(int arr[], const int n)
+void bubble_Sort(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -782,7 +792,57 @@ void Sortbuble(int arr[], const int n)
 	}
 }
 
-void Sort(int arr[], const int n)
+void bubble_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			for (int i = 0; i < ROWS; i++)
+			{
+				for (int j = 0; j < COLS-1; j++)
+				{
+					if (arr[i][j] > arr[i][j + 1])
+					{
+						int buffer = arr[i][j];
+						arr[i][j] = arr[i][j + 1];
+						arr[i][j + 1] = buffer;
+					}
+				}
+			}
+		}
+	}
+}
+
+void bubble_Sort_1(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			for (int i = 0; i < ROWS; i++)
+			{
+				for (int j = 0 ; j < COLS; j++)
+				{
+					if (j + 1 == COLS)  
+					{
+					    int buffer = arr[i][j];
+						arr[i][j] = arr[i + 1][0];
+						arr[i + 1][0] = buffer;
+					}
+				    if (arr[i][j] > arr[i][j + 1])
+					{
+					    int buffer = arr[i][j];
+						arr[i][j] = arr[i][j+1];
+						arr[i][j+1] = buffer;
+					}
+				}
+			}
+		}
+	}
+}
+
+void selection_Sort(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++) // счётчик i выбирает элемент массива в который будет помещено минимальное значение
 	{
