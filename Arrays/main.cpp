@@ -1,11 +1,15 @@
 ﻿#include<iostream>
 using namespace std;
 
+using std::cout;
+using std::cin;
+using std::endl;
+
 #define tab "\t"
 #define delimiter "\n----------------------------------------------------------------\n"
-//#define I_ARR
+#define I_ARR
 //#define D_ARR
-#define I_ARR_2
+//#define I_ARR_2
 //#define CHAR
 const int ROWS = 3; //количество строк
 const int COLS = 4; //количество элементов строки
@@ -16,6 +20,7 @@ void FillRand(char arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
 void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
+void Unique(int arr[], const int n, int minRand = 0, int maxRand = 100);
 
 void Print(const int arr[], const int n);
 void Print(const double arr[], const int n);
@@ -83,31 +88,35 @@ void main()
 #ifdef I_ARR
 	const int I_SIZE = 10;
 	int i_arr[I_SIZE];
-	int minRand = 0, maxRand = 0;
-	/*do
+	int minRand = 0, maxRand = 10;
+    /*do
 	{
 		cout << "Введите минимально возможное случайное число: "; cin >> minRand;
 		cout << "Введите максимально возможное случайное число: "; cin >> maxRand;
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
 	} while (minRand == maxRand);*/
-	FillRand(i_arr, I_SIZE);
+	FillRand(i_arr, I_SIZE, minRand, maxRand);
 	cout << "Выводим массив на экран: "; Print(i_arr, I_SIZE);
 	cout << "Возвращаем сумму всех элементов массива: " << Sum(i_arr, I_SIZE) << endl;
 	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(i_arr, I_SIZE) << endl;
 	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(i_arr, I_SIZE) << endl;
 	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(i_arr, I_SIZE) << endl;
 	int number_of_shifts;
-	cout << "Циклически сдвигаем массив на заданное число элементов влево :" << endl;
-	cout << "Введите количество сдвигов: "; cin >> number_of_shifts;
+	cout << "Введите количество сдвигов влево: "; cin >> number_of_shifts;
 	shiftLeft(i_arr, I_SIZE, number_of_shifts);
 	Print(i_arr, I_SIZE);
-	cout << "Циклически сдвигаем массив на заданное число элементов вправо :" << endl;
-	cout << "Введите количесиво сдвигов: "; cin >> number_of_shifts;
+	cout << "Введите количесиво сдвигов вправо: "; cin >> number_of_shifts;
 	shiftRight(i_arr, I_SIZE, number_of_shifts);
 	Print(i_arr, I_SIZE);
 	cout << endl;
+	cout << "Сортируем массив выбором: ";
 	selection_Sort(i_arr, I_SIZE);
 	Print(i_arr, I_SIZE);
+	cout << endl;
+	cout << "Выводим массив уникальных чисел: ";
+	Unique(i_arr, I_SIZE, minRand, maxRand);
+	Print(i_arr, I_SIZE);
+
 	cout << delimiter << endl;
 #endif // I_ARR
 
@@ -249,6 +258,29 @@ void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minRand,
 		for (int j = 0; j < COLS; j++)
 		{
 			arr[i][j] = rand() % 100;
+		}
+	}
+}
+
+void Unique(int arr[], const int n, int minRand, int maxRand)
+{
+	bool exists; //существует
+	for (int i = 0; i < n;)
+	{
+		exists = false;
+		int newValue = minRand + rand() % (maxRand - minRand);
+		for (int j = 0; j < i; j++)
+		{
+			if (arr[j] == newValue)
+			{
+				exists = true;
+				break;
+			}
+		}
+		if (exists == false)
+		{
+			arr[i] = newValue;
+			i++;
 		}
 	}
 }
