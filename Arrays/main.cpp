@@ -1,25 +1,7 @@
-﻿#include<iostream>
-using namespace std;
+﻿#include"stdafx.h"
+#include"Constans.h"
+#include"FillRand.h"
 
-using std::cout;
-using std::cin;
-using std::endl;
-
-#define tab "\t"
-#define delimiter "\n----------------------------------------------------------------\n"
-//#define I_ARR
-//#define D_ARR
-#define I_ARR_2
-//#define CHAR
-const int ROWS = 3; //количество строк
-const int COLS = 4; //количество элементов строки
-
-void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
-void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
-void FillRand(char arr[], const int n, int minRand = 0, int maxRand = 100); 
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
 void Unique(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void Unique_1(int arr[], const int n);
 void Unique_2(int arr[ROWS][COLS],  int ROWS,  int COLS);
@@ -84,6 +66,12 @@ void bubble_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS); //пос�
 void bubble_Sort_1(int arr[ROWS][COLS], const int ROWS, const int COLS); //сквозная
 void selection_Sort(int arr[], const int n);
 void selection_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS); //сквозная
+
+//#define I_ARR
+//#define D_ARR
+#define I_ARR_2
+//#define CHAR
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -192,81 +180,7 @@ void main()
 #endif // CHAR
 
 }
-void FillRand(int arr[], const int n, int minRand, int maxRand)
-{
-	if (maxRand < minRand)
-	{
-		int buffer = minRand;
-		minRand = maxRand;
-		maxRand = buffer;
-	}
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = minRand + rand() % (maxRand - minRand);
-		//arr[i] = 50 + rand() % 50;
-		//Функция rand() генерирует псевдослучайное число в диапазоне от 0 до 32 767 (RAND_MAX)
-		//Это псевдослучайное число можно вывести на экран, сохранить в переменную, или элемент массива
-	}
-}
-void FillRand(double arr[], const int n, int minRand, int maxRand)
-{
-	if (maxRand < minRand)
-	{
-		double buffer = minRand;
-		minRand = maxRand;
-		maxRand = buffer;
-	}
-	minRand *= 100;
-	maxRand *= 100;
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = minRand + rand() % (maxRand - minRand);
-		arr[i] /= 100;
-	}
-}
-void FillRand(char arr[], const int n, int minRand, int maxRand)
-{
-	if (maxRand < minRand)
-	{
-		char buffer = minRand;
-		minRand = maxRand;
-		maxRand = buffer;
-	}
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = minRand + rand() % (maxRand - minRand);
-	}
-}
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 100;
-		}
-	}
-}
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 100;
-		}
-	}
-}
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 100;
-		}
-	}
-}
+
 
 void Unique(int arr[], const int n, int minRand, int maxRand)
 {
