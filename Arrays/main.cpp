@@ -61,7 +61,6 @@ void main()
 	
 #ifdef I_ARR_2
 	int i_arr_2[ROWS][COLS];
-
 	FillRand(i_arr_2, ROWS, COLS); //Заполнение массива случайными числами:
 	Print(i_arr_2, ROWS, COLS);//Вывод двумерного массива на экран:
 
@@ -95,6 +94,7 @@ void main()
 	cout << "Сквозная сортировка выбором: " << endl;
 	selection_Sort(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
+	
 	cout << delimiter << endl;
 #endif // I_ARR_2
 
@@ -103,6 +103,7 @@ void main()
 	const int D_SIZE = 10;
 	double d_arr[D_SIZE];
 	FillRand(d_arr, D_SIZE);
+	int number_of_shifts = 3;
 	cout << "Массив double элементов: "; Print(d_arr, D_SIZE);
 	cout << "Сумма элементов массива: " << Sum(d_arr, D_SIZE) << endl;
 	cout << "Среднее арифметическое элементов массива: " << Avg(d_arr, D_SIZE) << endl;
@@ -114,30 +115,39 @@ void main()
 	cout << "Сдвиг массива вправо: " << endl;
 	shiftRight(d_arr, D_SIZE, number_of_shifts); cout << endl;
 	Print(d_arr, D_SIZE);
+	selection_Sort(d_arr, D_SIZE);
+	Print(d_arr, D_SIZE);
 	cout << delimiter << endl;
 #endif // 
 #ifdef CHAR
 	const char SYMBOL = 10;
 	char s[SYMBOL];
-	int minRand = 100, maxRand = 110;
+	int minRand = 10, maxRand = 150;
 	const int number_of_shifts = 3;
 	FillRand(s, SYMBOL, minRand, maxRand);
+	char arr[ROWS][COLS];
 	cout << "FillRand = "; Print(s, SYMBOL);
-	//ShiftLeft(s, SYMBOL, number_of_shifts);
 	cout << "minValueIn = " << minValueIn(s, SYMBOL) << endl;
 	cout << "maxValueIn = " << maxValueIn(s, SYMBOL) << endl;
 	cout << "Sum = " << Sum(s, SYMBOL) << endl;
 	cout << "Avg = " << Avg(s, SYMBOL) << endl;
+	shiftLeft(s,SYMBOL, number_of_shifts);
+	cout << "Сдвиг влево: " << endl;
+	Print(s, SYMBOL);
+	shiftRight(s, SYMBOL, number_of_shifts);
+	cout << "Сдвиг вправо: " << endl;
+	Print(s, SYMBOL);
 	bubble_Sort(s, SYMBOL);
 	cout << "bubble: "; Print(s, SYMBOL);
 	selection_Sort(s, SYMBOL);
 	cout << "selection: "; Print(s, SYMBOL);
 	Unique(s, SYMBOL);
 	cout << "Unique = "; Print(s, SYMBOL);
-	ShiftLeft(s, SYMBOL, number_of_shifts);
-	Print(s, SYMBOL);
-	ShiftRight(s, SYMBOL, number_of_shifts);
-	Print(s, SYMBOL);
+	FillRand(arr, ROWS, COLS);
+	selection_Sort(arr, ROWS, COLS);
+	cout << "selection char: " << endl;
+	Print(arr, ROWS,COLS);
+
 #endif // CHAR
 
 }
