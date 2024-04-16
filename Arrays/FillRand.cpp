@@ -31,11 +31,11 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		arr[i] /= 100;
 	}
 }
-void FillRand(char arr[], const int n, int minRand, int maxRand)
+void FillRand(char arr[], const int n,  int minRand, int maxRand)
 {
 	if (maxRand < minRand)
 	{
-		char buffer = minRand;
+		int buffer = minRand;
 		minRand = maxRand;
 		maxRand = buffer;
 	}

@@ -15,7 +15,21 @@ void bubble_Sort(int arr[], const int n)
 		}
 	}
 }
-
+void bubble_Sort(char arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n - 1 - i; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int buffer = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = buffer;
+			}
+		}
+	}
+}
 void bubble_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)

@@ -17,7 +17,36 @@ void selection_Sort(int arr[], const int n)
 		}
 	}
 }
-
+void selection_Sort(double arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (arr[j] < arr[i])
+			{
+				double buffer = arr[i];
+				arr[i] = arr[j];
+				arr[j] = buffer;
+			}
+		}
+	}
+}
+void selection_Sort(char arr[], const int n)
+{
+	for (int i = 0; i < n; i++) 
+	{
+		for (int j = i + 1; j < n; j++) 
+		{
+			if (arr[j] < arr[i])
+			{
+				int buffer = arr[i];
+				arr[i] = arr[j];
+				arr[j] = buffer;
+			}
+		}
+	}
+}
 void selection_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	//Эти два цикла выбирают элемент

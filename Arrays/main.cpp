@@ -3,8 +3,8 @@
 #include"FillRand.h"
 #include"Print.h"
 #include"Unique.h"
-//#include"Sum.h"
-//#include"Avg.h"
+#include"Sum.h"
+#include"Avg.h"
 #include"minValueIn.h"
 #include"maxValueIn.h"
 #include"ShiftLeft.h"
@@ -119,8 +119,24 @@ void main()
 #ifdef CHAR
 	const char SYMBOL = 10;
 	char s[SYMBOL];
-	int minRand = 0, maxRand = 0;
+	int minRand = 100, maxRand = 110;
+	const int number_of_shifts = 3;
 	FillRand(s, SYMBOL, minRand, maxRand);
+	cout << "FillRand = "; Print(s, SYMBOL);
+	//ShiftLeft(s, SYMBOL, number_of_shifts);
+	cout << "minValueIn = " << minValueIn(s, SYMBOL) << endl;
+	cout << "maxValueIn = " << maxValueIn(s, SYMBOL) << endl;
+	cout << "Sum = " << Sum(s, SYMBOL) << endl;
+	cout << "Avg = " << Avg(s, SYMBOL) << endl;
+	bubble_Sort(s, SYMBOL);
+	cout << "bubble: "; Print(s, SYMBOL);
+	selection_Sort(s, SYMBOL);
+	cout << "selection: "; Print(s, SYMBOL);
+	Unique(s, SYMBOL);
+	cout << "Unique = "; Print(s, SYMBOL);
+	ShiftLeft(s, SYMBOL, number_of_shifts);
+	Print(s, SYMBOL);
+	ShiftRight(s, SYMBOL, number_of_shifts);
 	Print(s, SYMBOL);
 #endif // CHAR
 

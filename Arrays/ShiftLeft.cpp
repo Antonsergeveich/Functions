@@ -24,7 +24,7 @@ void shiftLeft(double arr[], const int n, int number_of_shifts)
 		arr[n - 1] = buffer;
 	}
 }
-void shiftLeft(char arr[], const int n, int number_of_shifts)
+void shiftLeft(char arr[], const int n, const int number_of_shifts)
 {
 	for (int i = 0; i < number_of_shifts % n; i++)
 	{
