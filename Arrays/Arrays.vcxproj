@@ -127,13 +127,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Avg.cpp" />
+    <ClCompile Include="bubble_Sort.cpp" />
     <ClCompile Include="Constans.h" />
     <ClCompile Include="FillRand.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="maxValueIn.cpp" />
+    <ClCompile Include="minValueIn.cpp" />
+    <ClCompile Include="Print.cpp" />
+    <ClCompile Include="selection_Sort.cpp" />
+    <ClCompile Include="ShiftLeft.cpp" />
+    <ClCompile Include="ShiftRight.cpp" />
+    <ClCompile Include="Sum.cpp" />
+    <ClCompile Include="Unique.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Avg.h" />
+    <ClInclude Include="bubble_Sort.h" />
     <ClInclude Include="FillRand.h" />
+    <ClInclude Include="maxValueIn.h" />
+    <ClInclude Include="minValueIn.h" />
+    <ClInclude Include="Print.h" />
+    <ClInclude Include="selection_Sort.h" />
+    <ClInclude Include="ShiftLeft.h" />
+    <ClInclude Include="ShiftRight.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Sum.h" />
+    <ClInclude Include="Unique.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

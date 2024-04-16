@@ -24,12 +24,72 @@
     <ClCompile Include="FillRand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Print.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Unique.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Avg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="minValueIn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="maxValueIn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShiftLeft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShiftRight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bubble_Sort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="selection_Sort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FillRand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Unique.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Avg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="minValueIn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="maxValueIn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShiftLeft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShiftRight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bubble_Sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="selection_Sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
