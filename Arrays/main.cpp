@@ -149,7 +149,4 @@ void main()
 	Print(arr, ROWS,COLS);
 
 #endif // CHAR
-
 }
-
-

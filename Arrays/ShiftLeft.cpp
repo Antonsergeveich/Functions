@@ -1,4 +1,4 @@
-#include"ShiftLeft.h"
+﻿#include"ShiftLeft.h"
 
 void shiftLeft(int arr[], const int n, int number_of_shifts)
 {

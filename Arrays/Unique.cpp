@@ -1,8 +1,8 @@
-#include"Unique.h"
+п»ї#include"Unique.h"
 
 void Unique(int arr[], const int n, int minRand, int maxRand)
 {
-	bool exists; //существует
+	bool exists; //СЃСѓС‰РµСЃС‚РІСѓРµС‚
 	for (int i = 0; i < n;)
 	{
 		exists = false;
@@ -50,8 +50,8 @@ void Unique_1(int arr[], const int n)
 		do
 		{
 			arr[i] = rand() % n;
-			unique = true;//предполагаем, что сгенерировалось уникальное
-			//случайное число, но это нужно проверить:
+			unique = true;//РїСЂРµРґРїРѕР»Р°РіР°РµРј, С‡С‚Рѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°Р»РѕСЃСЊ СѓРЅРёРєР°Р»СЊРЅРѕРµ
+			//СЃР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ, РЅРѕ СЌС‚Рѕ РЅСѓР¶РЅРѕ РїСЂРѕРІРµСЂРёС‚СЊ:
 			for (int j = 0; j < i; j++)
 			{
 				if (arr[i] == arr[j])

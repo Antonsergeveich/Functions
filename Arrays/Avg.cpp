@@ -1,4 +1,4 @@
-#include"Avg.h"
+﻿#include"Avg.h"
 #include"Sum.h"
 
 double Avg(const int arr[], const int n)

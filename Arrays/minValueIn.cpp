@@ -1,4 +1,4 @@
-#include"minValueIn.h"
+﻿#include"minValueIn.h"
 
 int minValueIn(const int arr[], const int n)
 {

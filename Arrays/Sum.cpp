@@ -1,4 +1,4 @@
-#include"Sum.h"
+﻿#include"Sum.h"
 
 int Sum(const int arr[], const int n)
 {

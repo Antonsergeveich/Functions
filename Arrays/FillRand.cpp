@@ -1,4 +1,4 @@
-#include"FillRand.h"
+ï»¿#include"FillRand.h"
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 	if (maxRand < minRand)
@@ -11,8 +11,8 @@ void FillRand(int arr[], const int n, int minRand, int maxRand)
 	{
 		arr[i] = minRand + rand() % (maxRand - minRand);
 		//arr[i] = 50 + rand() % 50;
-		//Ôóíêöèÿ rand() ãåíåðèðóåò ïñåâäîñëó÷àéíîå ÷èñëî â äèàïàçîíå îò 0 äî 32 767 (RAND_MAX)
-		//Ýòî ïñåâäîñëó÷àéíîå ÷èñëî ìîæíî âûâåñòè íà ýêðàí, ñîõðàíèòü â ïåðåìåííóþ, èëè ýëåìåíò ìàññèâà
+		//Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ rand() Ð³ÐµÐ½ÐµÑ€Ð¸Ñ€ÑƒÐµÑ‚ Ð¿ÑÐµÐ²Ð´Ð¾ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð² Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ðµ Ð¾Ñ‚ 0 Ð´Ð¾ 32 767 (RAND_MAX)
+		//Ð­Ñ‚Ð¾ Ð¿ÑÐµÐ²Ð´Ð¾ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¼Ð¾Ð¶Ð½Ð¾ Ð²Ñ‹Ð²ÐµÑÑ‚Ð¸ Ð½Ð° ÑÐºÑ€Ð°Ð½, ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð² Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ, Ð¸Ð»Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¼Ð°ÑÑÐ¸Ð²Ð°
 	}
 }
 void FillRand(double arr[], const int n, int minRand, int maxRand)
