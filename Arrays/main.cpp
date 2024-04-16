@@ -159,8 +159,8 @@ void main()
 	bubble_Sort_1(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);*/
 
-	cout << "Сквозная сортировка выбором: " << endl;
-	selection_Sort(i_arr_2, ROWS, COLS);
+	
+	Unique_2(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
 	cout << delimiter << endl;
 #endif // I_ARR_2
@@ -324,15 +324,16 @@ void Unique_2(int arr[ROWS][COLS], const int ROWS,  const int COLS)
 			     unique = true;
 			     for (int k = 0; k <= i; k++)
 			     {
-				     for (int l = 0; l < COLS; l++)
+				     for (int l = 0; l < ( k == i ? j : COLS); l++)
 				     {
 					      if (arr[i][j] == arr[k][l])
 					      {
 						      unique = false;
 						      break;
 					      }
-				     }
-			     }if (!unique)break;
+			         }
+					 if (!unique)break;
+				 }
 			} while (!unique);
 		}
 	}
