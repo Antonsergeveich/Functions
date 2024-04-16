@@ -228,27 +228,20 @@ void FillRand(char arr[], const int n, int minRand, int maxRand)
 	}
 	for (int i = 0; i < n; i++)
 	{
-		arr[i] = minRand + rand() % (maxRand - minRand);
-	}
-}
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
+		bool unique;
+		do
 		{
-			arr[i][j] = rand() % 100;
-		}
-	}
-}
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 100;
-		}
+		arr[i] = rand() % n;
+		unique = true;//предполагаем, что сгенерировалось уникальное случайное число, но это нужно проверить:
+		   for (int j = 0; j < i; j++)
+		   {
+			  if (arr[i] == arr[j])
+			  {
+				 unique = false;
+				 break;
+			  }
+		   }
+		} while (!unique);
 	}
 }
 void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
