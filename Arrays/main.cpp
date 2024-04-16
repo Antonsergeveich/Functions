@@ -7,12 +7,10 @@ using std::endl;
 
 #define tab "\t"
 #define delimiter "\n----------------------------------------------------------------\n"
-//#define I_ARR
-//#define D_ARR
-#define I_ARR_2
-//#define CHAR
+
 const int ROWS = 3; //количество строк
 const int COLS = 4; //количество элементов строки
+
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
@@ -21,6 +19,8 @@ void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand =
 void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
 void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 100);
 void Unique(int arr[], const int n, int minRand = 0, int maxRand = 100);
+void Unique_1(int arr[], const int n);
+void Unique_2(int arr[ROWS][COLS], int ROWS, int COLS);
 
 void Print(const int arr[], const int n);
 void Print(const double arr[], const int n);
@@ -82,6 +82,12 @@ void bubble_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS); //пос�
 void bubble_Sort_1(int arr[ROWS][COLS], const int ROWS, const int COLS); //сквозная
 void selection_Sort(int arr[], const int n);
 void selection_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS); //сквозная
+
+//#define I_ARR
+//#define D_ARR
+#define I_ARR_2 //двумерный
+//#define CHAR
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -228,20 +234,27 @@ void FillRand(char arr[], const int n, int minRand, int maxRand)
 	}
 	for (int i = 0; i < n; i++)
 	{
-		bool unique;
-		do
+		arr[i] = minRand + rand() % (maxRand - minRand);
+	}
+}
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
 		{
-		arr[i] = rand() % n;
-		unique = true;//предполагаем, что сгенерировалось уникальное случайное число, но это нужно проверить:
-		   for (int j = 0; j < i; j++)
-		   {
-			  if (arr[i] == arr[j])
-			  {
-				 unique = false;
-				 break;
-			  }
-		   }
-		} while (!unique);
+			arr[i][j] = rand() % 100;
+		}
+	}
+}
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
 	}
 }
 void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
@@ -277,7 +290,53 @@ void Unique(int arr[], const int n, int minRand, int maxRand)
 		}
 	}
 }
-
+void Unique_1(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		bool unique;
+		do
+		{
+		arr[i] = rand() % n;
+		unique = true;//предполагаем, что сгенерировалось уникальное 
+		//случайное число, но это нужно проверить:
+		   for (int j = 0; j < i; j++)
+		   {
+			  if (arr[i] == arr[j])
+			  {
+				 unique = false;
+				 break;
+			  }
+		   }
+		} while (!unique);
+	}
+}
+void Unique_2(int arr[ROWS][COLS],  int ROWS,  int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+		    bool unique;
+			do
+			{
+			     arr[i][j] = rand() % (ROWS * COLS);
+			     unique = true;
+			     for (int k = 0; k <= i; k++)
+			     {
+				     for (int l = 0; l < COLS; l++)
+				     {
+					      if (arr[i][j] == arr[k][l])
+					      {
+						      unique = false;
+						      break;
+					      }
+				     }
+			     }if (!unique)break;
+			} while (!unique);
+		}
+	}
+}
 void Print(const int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
