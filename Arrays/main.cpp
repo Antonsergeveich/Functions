@@ -7,9 +7,9 @@ using std::endl;
 
 #define tab "\t"
 #define delimiter "\n----------------------------------------------------------------\n"
-#define I_ARR
+//#define I_ARR
 //#define D_ARR
-//#define I_ARR_2
+#define I_ARR_2
 //#define CHAR
 const int ROWS = 3; //количество строк
 const int COLS = 4; //количество элементов строки
@@ -149,14 +149,14 @@ void main()
 	Print(i_arr_2, ROWS, COLS);
 	cout << endl;*/
 
-	cout << "Сквозная пузырьковая сортировка : " << endl;
+	/*cout << "Сквозная пузырьковая сортировка : " << endl;
 	bubble_Sort_1(i_arr_2, ROWS, COLS);
-	Print(i_arr_2, ROWS, COLS);
+	Print(i_arr_2, ROWS, COLS);*/
 
-	/*cout << "Сквозная сортировка выбором: " << endl;
+	cout << "Сквозная сортировка выбором: " << endl;
 	selection_Sort(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
-	cout << delimiter << endl;*/
+	cout << delimiter << endl;
 #endif // I_ARR_2
 
 
@@ -921,6 +921,7 @@ void selection_Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 					if (l == COLS)break;*/
 					//arr[i][j] - выбранный элемент
 					//arr[k][l] - перебираемый элемент
+					
 					if (arr[i][j] > arr[k][l])
 					{
 						int buffer = arr[i][j];
