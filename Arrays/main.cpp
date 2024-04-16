@@ -4,7 +4,7 @@
 
 void Unique(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void Unique_1(int arr[], const int n);
-void Unique_2(int arr[ROWS][COLS],  int ROWS,  int COLS);
+void Unique_2(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Print(const int arr[], const int n);
 void Print(const double arr[], const int n);
@@ -211,8 +211,9 @@ void Unique_1(int arr[], const int n)
 		bool unique;
 		do
 		{
-		arr[i] = rand() % n;
-		unique = true;//предполагаем, что сгенерировалось уникальное случайное число, но это нужно проверить:
+		   arr[i] = rand() % n;
+		   unique = true;//предполагаем, что сгенерировалось уникальное
+		   //случайное число, но это нужно проверить:
 		   for (int j = 0; j < i; j++)
 		   {
 			  if (arr[i] == arr[j])
@@ -224,7 +225,7 @@ void Unique_1(int arr[], const int n)
 		} while (!unique);
 	}
 }
-void Unique_2(int arr[ROWS][COLS],  int ROWS,  int COLS)
+void Unique_2(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
 	{
@@ -237,7 +238,7 @@ void Unique_2(int arr[ROWS][COLS],  int ROWS,  int COLS)
 			     unique = true;
 			     for (int k = 0; k <= i; k++)
 			     {
-				     for (int l = 0; l < COLS; l++)
+				     for (int l = 0; l < (k == i ? j : COLS); l++)
 				     {
 					      if (arr[i][j] == arr[k][l])
 					      {
@@ -245,7 +246,8 @@ void Unique_2(int arr[ROWS][COLS],  int ROWS,  int COLS)
 						      break;
 					      }
 				     }
-			     }if (!unique)break;
+				     if (!unique)break;
+			     }
 			} while (!unique);
 		}
 	}
