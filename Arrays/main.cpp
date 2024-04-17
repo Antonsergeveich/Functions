@@ -3,12 +3,19 @@ using namespace std;
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
-void Print(const int arr[], const int n);
-void Print(const double arr[], const int n);
-int Sum(const int arr[], const int n);
+//template - создаёт шаблон
+//typename - создаёт шаблонный тип данных
+//T - имя шаблонного типа
+template<typename T>
+void Print(const T arr[], const int n);
+template<typename T>
+T Sum(const T arr[], const int n);
+
 double Avg(const int arr[], const int n);
+
 int minValueIn( const int arr[], const int n);
 int maxValueIn(const int arr[], const int n);
+
 void shiftLeft(int arr[], const int n);
 void shiftRight(int arr[], const int n);
 
@@ -35,8 +42,13 @@ void main()
     shiftLeft(arr, n);
 	cout << "Циклически сдвигаем массив на заданное число элементов вправо :" << endl;
 	shiftRight(arr, n);
+
+	const int D_SIZE = 8;
+	double d_arr[D_SIZE];
+	FillRand(d_arr, D_SIZE);
+	Print(d_arr, D_SIZE);
+	cout << "Сумма элементов массива: " << Sum(d_arr, D_SIZE);
 }
- 
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 	if (maxRand < minRand)
@@ -52,7 +64,6 @@ void FillRand(int arr[], const int n, int minRand, int maxRand)
 		//arr[i] = 50 + rand() % 50;
 		//Функция rand() генерирует псевдослучайное число в диапазоне от 0 до 32 767 (RAND_MAX)
 		//Это псевдослучайное число можно вывести на экран, сохранить в переменную, или элемент массива
-
 	}
 	//Вывод массива на экран:
 	/*for (int i = 0; i < n; i++)
@@ -69,29 +80,26 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		minRand = maxRand;
 		maxRand = buffer;
 	}
-	
+	minRand *= 100;
+	maxRand *= 100;
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = minRand + rand() % (maxRand - minRand);
+		arr[i] /= 100;
 	}
 }
-void Print(const int arr[], const int n)
+template<typename T>
+void Print(const T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << "\t";
 	}
 }
-void Print(const double arr[], const int n)
+template<typename T>
+T Sum( const T arr[], const int n)
 {
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << "\t";
-	}
-}
-int Sum( const int arr[], const int n)
-{
-	int sum = 0;
+	T sum = 0;
 	for (int i = 0; i < n; i++)
 	{
 		sum += arr[i];
@@ -155,5 +163,4 @@ void shiftRight(int arr[], const int n)
 		}
 		cout << endl;
 	}
-	
 }
