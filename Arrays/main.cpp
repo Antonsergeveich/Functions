@@ -14,8 +14,8 @@
 
 //#define I_ARR
 //#define D_ARR
-//#define I_ARR_2
-#define CHAR
+#define I_ARR_2
+//#define CHAR
 
 void main()
 {
@@ -37,7 +37,7 @@ void main()
 	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(i_arr, I_SIZE) << endl;
 	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(i_arr, I_SIZE) << endl;
 	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(i_arr, I_SIZE) << endl;
-	/*int number_of_shifts;
+	int number_of_shifts;
 	cout << "Введите количество сдвигов влево: "; cin >> number_of_shifts;
 	shiftLeft(i_arr, I_SIZE, number_of_shifts);
 	Print(i_arr, I_SIZE);
@@ -51,10 +51,10 @@ void main()
 	cout << endl;
 	cout << "Выводим массив уникальных чисел: ";
 	Unique(i_arr, I_SIZE, minRand, maxRand);
-	Print(i_arr, I_SIZE);*/
-	Unique_2(i_arr[ROWS][COLS], ROWS, COLS);
 	Print(i_arr, I_SIZE);
-	cout << delimiter << endl;
+	/*Unique_2(i_arr[ROWS][COLS], ROWS, COLS);
+	Print(i_arr, I_SIZE);
+	cout << delimiter << endl;*/
 
 #endif // I_ARR
 
