@@ -1,6 +1,8 @@
 ﻿#include<iostream>
 using namespace std;
 
+#define tab "\t"
+
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
 //template - создаёт шаблон
@@ -22,8 +24,6 @@ void shiftRight(int arr[], const int n);
 void selection_Sort(int arr[], const int n);
 
 void Search(int arr[], int n);
-
-#define tab "\t"
 void main()
 {
 	setlocale(LC_ALL, "");
