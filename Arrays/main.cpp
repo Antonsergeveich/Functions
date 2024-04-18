@@ -39,7 +39,7 @@ void main()
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
 	} while (minRand == maxRand);*/
 	FillRand(arr, n, 0, 10); // Заполняем массив случайными числами
-	//cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
+	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
 	//cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
 	//cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
 	//cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
