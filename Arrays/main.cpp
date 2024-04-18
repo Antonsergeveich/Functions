@@ -19,11 +19,15 @@ int maxValueIn(const int arr[], const int n);
 void shiftLeft(int arr[], const int n);
 void shiftRight(int arr[], const int n);
 
+void selection_Sort(int arr[], const int n);
+
+void Search(int arr[], int n);
+
 #define tab "\t"
 void main()
 {
 	setlocale(LC_ALL, "");
-	const int n = 5;
+	const int n = 10;
 	int arr[n];
 	int minRand, maxRand;
 	/*do
@@ -32,9 +36,9 @@ void main()
 		cout << "Введите максимально возможное случайное число: "; cin >> maxRand;
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
 	} while (minRand == maxRand);*/
-	FillRand(arr, n); // Заполняем массив случайными числами
+	FillRand(arr, n, 0, 10); // Заполняем массив случайными числами
 	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
-	cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
+	/*cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
 	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
 	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
 	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
@@ -47,7 +51,11 @@ void main()
 	double d_arr[D_SIZE];
 	FillRand(d_arr, D_SIZE);
 	Print(d_arr, D_SIZE);
-	cout << "Сумма элементов массива: " << Sum(d_arr, D_SIZE);
+	cout << "Сумма элементов массива: " << Sum(d_arr, D_SIZE);*/
+	/*selection_Sort(arr, n);
+	Print(arr, n);*/
+	cout << endl;
+	Search(arr, n);
 }
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
@@ -95,6 +103,7 @@ void Print(const T arr[], const int n)
 	{
 		cout << arr[i] << "\t";
 	}
+	cout << endl;
 }
 template<typename T>
 T Sum( const T arr[], const int n)
@@ -162,5 +171,46 @@ void shiftRight(int arr[], const int n)
 			cout << arr[i] << "\t";
 		}
 		cout << endl;
+	}
+}
+void selection_Sort(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++) 
+	{
+		for (int j = i + 1; j < n; j++) 
+		{
+			if (arr[j] < arr[i])
+			{
+				int buffer = arr[i];
+				arr[i] = arr[j];
+				arr[j] = buffer;
+			}
+		}
+	}
+}
+
+void Search(int arr[], int n)
+{
+	selection_Sort(arr, n);
+	for (int i = 0; i < n; i++)
+	{
+		int x = arr[0];
+		int number = arr[i]; //число
+		int repeat = 0; //повторения
+		if (arr[i] != arr[i - 1])
+		{
+			for (int j = i + 1; j < n; j++)
+			{
+				if (arr[j] == arr[i])
+				{
+					repeat++;
+					x = arr[j];
+				}
+			}
+		}
+		if (x == arr[i + 1])
+		{
+			cout << number << " = " << repeat << endl;
+		}
 	}
 }
