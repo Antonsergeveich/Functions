@@ -12,17 +12,19 @@ template<typename T>
 void Print(const T arr[], const int n);
 template<typename T>
 T Sum(const T arr[], const int n);
-
-double Avg(const int arr[], const int n);
-
-int minValueIn( const int arr[], const int n);
-int maxValueIn(const int arr[], const int n);
-
-void shiftLeft(int arr[], const int n);
-void shiftRight(int arr[], const int n);
-
-void selection_Sort(int arr[], const int n);
-
+template<typename T>
+T Avg(const T arr[], const int n);
+template<typename T>
+T minValueIn( const T arr[], const int n);
+template<typename T>
+T maxValueIn(const T arr[], const int n);
+template<typename T>
+void shiftLeft(T arr[], const int n);
+template<typename T>
+void shiftRight(T arr[], const int n);
+template<typename T>
+void selection_Sort(T arr[], const int n);
+//template<typename T>
 void Search(int arr[], int n);
 void main()
 {
@@ -37,23 +39,24 @@ void main()
 		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
 	} while (minRand == maxRand);*/
 	FillRand(arr, n, 0, 10); // Заполняем массив случайными числами
-	cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
-	/*cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
-	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
-	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
-	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
-	cout << "Циклически сдвигаем массив на заданное число элементов влево :" << endl;
-    shiftLeft(arr, n);
-	cout << "Циклически сдвигаем массив на заданное число элементов вправо :" << endl;
-	shiftRight(arr, n);
+	//cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
+	//cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
+	//cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
+	//cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
+	//cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
+	//cout << "Сдвигаем массив влево: " << endl; shiftLeft(arr, n);
+	//cout << "Сдвигаем массив вправо: " << endl; shiftRight(arr, n);
 
 	const int D_SIZE = 8;
 	double d_arr[D_SIZE];
-	FillRand(d_arr, D_SIZE);
+	FillRand(d_arr, D_SIZE, 0, 10);
 	Print(d_arr, D_SIZE);
-	cout << "Сумма элементов массива: " << Sum(d_arr, D_SIZE);*/
-	/*selection_Sort(arr, n);
-	Print(arr, n);*/
+	/*cout << "Возвращаем сумму всех элементов массива: " << Sum(d_arr, D_SIZE) << endl;
+	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(d_arr, D_SIZE) << endl;
+	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(d_arr, D_SIZE) << endl;
+	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(d_arr, D_SIZE) << endl;
+	cout << "Сдвигаем массив влево: " << endl; shiftLeft(d_arr, D_SIZE);
+	cout << "Сдвигаем массив вправо: " << endl; shiftRight(d_arr, D_SIZE);*/
 	cout << endl;
 	Search(arr, n);
 }
@@ -115,13 +118,15 @@ T Sum( const T arr[], const int n)
 	}
 	return sum;
 }
-double Avg(const int arr[], const int n)
+template<typename T>
+T Avg(const T arr[], const int n)
 {
-		return (double)Sum(arr, n) / n;
+		return  (double) Sum(arr, n) / n;
 }
-int minValueIn(const int arr[], const int n)
+template<typename T>
+T minValueIn(const T arr[], const int n)
 {
-	int min;
+	T min;
 	min = arr[0];
 	for (int i = 0; i < n; i++)
 	{
@@ -129,9 +134,10 @@ int minValueIn(const int arr[], const int n)
 	}
 	return min;
 }
-int maxValueIn(const int arr[], const int n)
+template<typename T>
+T maxValueIn(const T arr[], const int n)
 {
-	int max;
+	T max;
     max = arr[0];
 	for (int i = 0; i < n; i++)
 	{
@@ -139,11 +145,12 @@ int maxValueIn(const int arr[], const int n)
 	}
 	return max;
 }
-void shiftLeft(int arr[], const int n)
+template<typename T>
+void shiftLeft(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		int buffer = arr[0];
+		T buffer = arr[0];
 		for (int i = 0; i < n; i++)
 		{
 			arr[i] = arr[i + 1];
@@ -156,11 +163,12 @@ void shiftLeft(int arr[], const int n)
 		cout << endl;
 	}
 }
-void shiftRight(int arr[], const int n)
+template<typename T>
+void shiftRight(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		int buffer = arr[n-1];
+		T buffer = arr[n-1];
 		for (int i = n-2; i >= 0; i--)
 		{
 			arr[i+1] = arr[i];
@@ -173,7 +181,8 @@ void shiftRight(int arr[], const int n)
 		cout << endl;
 	}
 }
-void selection_Sort(int arr[], const int n)
+template<typename T>
+void selection_Sort(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++) 
 	{
@@ -181,14 +190,14 @@ void selection_Sort(int arr[], const int n)
 		{
 			if (arr[j] < arr[i])
 			{
-				int buffer = arr[i];
+				T buffer = arr[i];
 				arr[i] = arr[j];
 				arr[j] = buffer;
 			}
 		}
 	}
 }
-
+//template<typename T>
 void Search(int arr[], int n)
 {
 	selection_Sort(arr, n);
