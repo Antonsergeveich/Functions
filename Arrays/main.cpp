@@ -1,15 +1,13 @@
-﻿#include<iostream>
-using namespace std;
-
-#define tab "\t"
+﻿#include"stdafx.h"
+#include"Constants.h"
+#include"Print.h"
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
 //template - создаёт шаблон
 //typename - создаёт шаблонный тип данных
 //T - имя шаблонного типа
-template<typename T>
-void Print(const T arr[], const int n);
+
 template<typename T>
 T Sum(const T arr[], const int n);
 template<typename T>
@@ -61,9 +59,19 @@ void main()
 	FillRand(arr, n,0,10);
 	Print(arr, n);
 	cout << endl;
-	//Search(arr, n);
-	Search_1(arr, n);
+	Search(arr, n);
+	cout << delimiter;
+	//Search_1(arr, n);
 	
+}
+template<typename T>
+void Print(const T arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+	cout << endl;
 }
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
@@ -104,15 +112,7 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		arr[i] /= 100;
 	}
 }
-template<typename T>
-void Print(const T arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << "\t";
-	}
-	cout << endl;
-}
+
 template<typename T>
 T Sum( const T arr[], const int n)
 {
@@ -248,19 +248,4 @@ void Search_1(int arr[], int n)
 		}
 		if (number == buffer)cout << buffer << " = " << repeat << endl;
 	}
-	//int buffer[n] = {};
-	//for (int i = 0; i < n; i++)
-	//{
-	//	int number = arr[0];//число
-	//	int repeat = 0; //повторения
-	//	for (int j = i + 1; j < n; j++)
-	//	{
-	//		if (arr[i] == arr[j])
-	//		{
-	//			buffer[i] = arr[i];
-	//			number = arr[i];
-	//		}
-	//	}
-	//	if (number == buffer[i])cout << number << endl;
-	//}
 }
