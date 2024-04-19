@@ -2,6 +2,8 @@
 #include"Constants.h"
 #include"Print.h"
 #include"Print.cpp"
+#include"Sum.h"
+#include"Sum.cpp"
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
@@ -9,8 +11,7 @@ void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
 //typename - создаёт шаблонный тип данных
 //T - имя шаблонного типа
 
-template<typename T>
-T Sum(const T arr[], const int n);
+
 template<typename T>
 T Avg(const T arr[], const int n);
 template<typename T>
@@ -47,16 +48,16 @@ void main()
 	//cout << "Сдвигаем массив влево: " << endl; shiftLeft(arr, n);
 	//cout << "Сдвигаем массив вправо: " << endl; shiftRight(arr, n);
 
-	/*const int D_SIZE = 8;
+	const int D_SIZE = 8;
 	double d_arr[D_SIZE];
 	FillRand(d_arr, D_SIZE, 0, 10);
-	Print(d_arr, D_SIZE);*/
-	/*cout << "Возвращаем сумму всех элементов массива: " << Sum(d_arr, D_SIZE) << endl;
+	Print(d_arr, D_SIZE);
+	cout << "Возвращаем сумму всех элементов массива: " << Sum(d_arr, D_SIZE) << endl;
 	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(d_arr, D_SIZE) << endl;
 	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(d_arr, D_SIZE) << endl;
 	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(d_arr, D_SIZE) << endl;
 	cout << "Сдвигаем массив влево: " << endl; shiftLeft(d_arr, D_SIZE);
-	cout << "Сдвигаем массив вправо: " << endl; shiftRight(d_arr, D_SIZE);*/
+	cout << "Сдвигаем массив вправо: " << endl; shiftRight(d_arr, D_SIZE);
 	FillRand(arr, n,0,10);
 	Print(arr, n);
 	cout << endl;
@@ -105,16 +106,7 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 	}
 }
 
-template<typename T>
-T Sum( const T arr[], const int n)
-{
-	T sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-}
+
 template<typename T>
 T Avg(const T arr[], const int n)
 {

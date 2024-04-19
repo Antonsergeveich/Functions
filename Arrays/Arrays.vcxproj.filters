@@ -21,6 +21,9 @@
     <ClCompile Include="Print.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -30,6 +33,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
