@@ -18,6 +18,8 @@
 #include"selection_Sort.cpp"
 #include"Search.h"
 #include"Search.cpp"
+#include"Unique.h"
+#include"Unique.cpp"
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
@@ -32,39 +34,15 @@ void main()
 	const int n = 10;
 	int arr[n];
 	int minRand, maxRand;
-	/*do
-	{
-		cout << "Введите минимально возможное случайное число: "; cin >> minRand;
-		cout << "Введите максимально возможное случайное число: "; cin >> maxRand;
-		if (minRand == maxRand)cout << "Пределы диапазона не должны совпадать: " << endl;
-	} while (minRand == maxRand);*/
-	//FillRand(arr, n, 0, 10); // Заполняем массив случайными числами
-	//cout << "Выводим массив на экран: "; Print(arr, n); cout << endl;
-	//cout << "Возвращаем сумму всех элементов массива: " << Sum(arr, n) << endl;
-	//cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(arr, n) << endl;
-	//cout << "Возвращаем минимальное значение в массиве: " << minValueIn(arr, n) << endl;
-	//cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(arr, n) << endl;
-	//cout << "Сдвигаем массив влево: " << endl; shiftLeft(arr, n);
-	//cout << "Сдвигаем массив вправо: " << endl; shiftRight(arr, n);
-
-	const int D_SIZE = 8;
-	double d_arr[D_SIZE];
-	FillRand(d_arr, D_SIZE, 0, 10);
-	Print(d_arr, D_SIZE);
-	cout << "Возвращаем сумму всех элементов массива: " << Sum(d_arr, D_SIZE) << endl;
-	cout << "Возвращаем среднее арифметическое элементов массива: " << Avg(d_arr, D_SIZE) << endl;
-	cout << "Возвращаем минимальное значение в массиве: " << minValueIn(d_arr, D_SIZE) << endl;
-	cout << "Возвращаем максимальное значение в массиве: " << maxValueIn(d_arr, D_SIZE) << endl;
-	cout << "Сдвигаем массив влево: " << endl; shiftLeft(d_arr, D_SIZE);
-	cout << "Сдвигаем массив вправо: " << endl; shiftRight(d_arr, D_SIZE);
 	FillRand(arr, n,0,10);
 	Print(arr, n);
 	cout << endl;
 	Search(arr, n);
 	cout << delimiter;
+	Unique(arr, n);
+	Print(arr, n);
 	//Search_1(arr, n);
 }
-
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 	if (maxRand < minRand)
@@ -73,20 +51,10 @@ void FillRand(int arr[], const int n, int minRand, int maxRand)
 		minRand = maxRand;
 		maxRand = buffer;
 	}
-	//Заполнение массива случайными числами:
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = minRand + rand() % (maxRand - minRand);
-		//arr[i] = 50 + rand() % 50;
-		//Функция rand() генерирует псевдослучайное число в диапазоне от 0 до 32 767 (RAND_MAX)
-		//Это псевдослучайное число можно вывести на экран, сохранить в переменную, или элемент массива
 	}
-	//Вывод массива на экран:
-	/*for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;*/
 }
 void FillRand(double arr[], const int n, int minRand, int maxRand)
 {

@@ -137,6 +137,7 @@
     <ClCompile Include="shiftLeft.cpp" />
     <ClCompile Include="shiftRight.cpp" />
     <ClCompile Include="Sum.cpp" />
+    <ClCompile Include="Unique.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Avg.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="shiftRight.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Sum.h" />
+    <ClInclude Include="Unique.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
