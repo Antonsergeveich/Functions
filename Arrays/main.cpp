@@ -1,6 +1,7 @@
 ﻿#include"stdafx.h"
 #include"Constants.h"
 #include"Print.h"
+#include"Print.cpp"
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
@@ -62,17 +63,8 @@ void main()
 	Search(arr, n);
 	cout << delimiter;
 	//Search_1(arr, n);
-	
 }
-template<typename T>
-void Print(const T arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << "\t";
-	}
-	cout << endl;
-}
+
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 	if (maxRand < minRand)
