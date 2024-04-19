@@ -24,6 +24,27 @@
     <ClCompile Include="Sum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Avg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="minValueIn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="maxValueIn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shiftLeft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shiftRight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="selection_Sort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Search.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -36,6 +57,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Avg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="minValueIn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="maxValueIn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shiftLeft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shiftRight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="selection_Sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Search.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

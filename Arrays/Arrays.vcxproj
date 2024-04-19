@@ -127,13 +127,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Avg.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="maxValueIn.cpp" />
+    <ClCompile Include="minValueIn.cpp" />
     <ClCompile Include="Print.cpp" />
+    <ClCompile Include="Search.cpp" />
+    <ClCompile Include="selection_Sort.cpp" />
+    <ClCompile Include="shiftLeft.cpp" />
+    <ClCompile Include="shiftRight.cpp" />
     <ClCompile Include="Sum.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Avg.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="maxValueIn.h" />
+    <ClInclude Include="minValueIn.h" />
     <ClInclude Include="Print.h" />
+    <ClInclude Include="Search.h" />
+    <ClInclude Include="selection_Sort.h" />
+    <ClInclude Include="shiftLeft.h" />
+    <ClInclude Include="shiftRight.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Sum.h" />
   </ItemGroup>
