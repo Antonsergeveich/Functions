@@ -35,21 +35,21 @@ void Search_1(int arr[], const int n);
 void main()
 {
 	setlocale(LC_ALL, "");
-	/*const int n = 10;
-	int arr[n];*/
+	const int n = 10;
+	int arr[n];
 	double d_arr[ROWS][COLS];
 	int minRand, maxRand;
-	/*FillRand(arr, n,0,10);
-	Print(arr, n);*/
+	FillRand(arr, n,0,10);
+	Print(arr, n);
 	cout << endl;
-	//Search(arr, n);
-	FillRand(d_arr,ROWS,COLS);
-	Print(d_arr, ROWS,COLS);
+	Search(arr, n);
+	//Search_1(arr, n);
 	cout << delimiter;
 	//Unique(arr, n);
 	//Unique(d_arr, ROWS,COLS);
 	//Print(arr, n);
-	//Search_1(arr, n);
+	FillRand(d_arr,ROWS,COLS);
+	Print(d_arr, ROWS,COLS);
 }
 void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
