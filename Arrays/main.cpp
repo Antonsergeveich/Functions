@@ -23,24 +23,32 @@
 
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 15);
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand = 0, int maxRand = 15);
+
+
 //template - создаёт шаблон
 //typename - создаёт шаблонный тип данных
 //T - имя шаблонного типа
+void Search_1(int arr[], const int n);
 
-void Search_1(int arr[], int n);
 void main()
 {
 	setlocale(LC_ALL, "");
-	const int n = 10;
-	int arr[n];
+	/*const int n = 10;
+	int arr[n];*/
+	double d_arr[ROWS][COLS];
 	int minRand, maxRand;
-	FillRand(arr, n,0,10);
-	Print(arr, n);
+	/*FillRand(arr, n,0,10);
+	Print(arr, n);*/
 	cout << endl;
-	Search(arr, n);
+	//Search(arr, n);
+	FillRand(d_arr,ROWS,COLS);
+	Print(d_arr, ROWS,COLS);
 	cout << delimiter;
-	Unique(arr, n);
-	Print(arr, n);
+	//Unique(arr, n);
+	//Unique(d_arr, ROWS,COLS);
+	//Print(arr, n);
 	//Search_1(arr, n);
 }
 void FillRand(int arr[], const int n, int minRand, int maxRand)
@@ -72,7 +80,27 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		arr[i] /= 100;
 	}
 }
-void Search_1(int arr[], int n)
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
+	}
+}
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minRand, int maxRand)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
+	}
+}
+void Search_1(int arr[], const int n)
 {
 
 	int buffer = 0;
@@ -92,3 +120,5 @@ void Search_1(int arr[], int n)
 		if (number == buffer)cout << buffer << " = " << repeat << endl;
 	}
 }
+
+
