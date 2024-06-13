@@ -25,6 +25,16 @@ int hex_to_dec(char str[]);//Если строка является шестна
 void main()
 {
 	setlocale(LC_ALL, "");
+	system("CHCP 1251");
+	system("CLS");
+	char strx[] = { 'H', 'o', 'p', ' ', 'l', 'a', 'i', 0};
+	char strm[] = "Hello";
+	const int n = 256;
+	char strt[n];
+	cout << "Введите строку: ";
+	/*SetConsoleCP(1251);
+	cin >> strt;*/
+	cin.getline(strt, n);
 	//ASCII();
 	char str[] = "Hello Pap  and   Mam";
 	char strch[] = "FC99";
@@ -35,8 +45,8 @@ void main()
 	cout << "Размер строки в Байтах:  " << sizeof(str) << endl;
 	cout << "Размер строки в символах:" << StrLen(str) << endl;
 	cout << endl;
-	to_lower(str);
-	printf(str);
+	to_lower(strx);
+	printf(strx);
 	cout << endl;
 	to_upper(str);
 	printf(str);
@@ -192,7 +202,7 @@ bool is_bin_number(char str[])
 
 int bin_to_dec(char str[])
 {
-	if(!is_bin_number(str))return 0;
+	if (!is_bin_number(str))return 0;
 	int n = StrLen(str);//Разрядность числа
 	int decimal = 0;  //Конечное десятичноее число
 	int weight = 1;   //Весовой коэффициент разряда
