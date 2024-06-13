@@ -12,16 +12,21 @@ void ASCII();
 int StrLen(char str[]);//Определяет длину строки
 void to_lower(char str[]); //переводит строку в нижний регистр
 void to_upper(char str[]); //переводит строку в верхний регистр
-void capitalize(char str[]);
-void shrink(char str[]);//удаляет из строки лишние пробелы
+void capitalize(char str[]);//Первую букву каждого слова в предложении делает заглавной
+void shrink(char str[]);//Удаляет из строки лишние пробелы
 void remove_symbol(char str[], char symbol);
 bool is_palindrome(char str[]); //Определяет, является ли строка палиндромом
-bool is_int_number(char str[]);//определяет, является ли строка целым числом
+bool is_int_number(char str[]);//Определяет, является ли строка целым числом
 int to_int_number(char str[]);//Если строка является целым числом, возвращает его значение
-bool is_bin_number(char str[]);//определяет, является ли строка двоичным числом
+bool is_bin_number(char str[]);//Определяет, является ли строка двоичным числом
+void insert_spaces(char str[]);
+char* dec_to_bin(int decimal);
 int bin_to_dec(char str[]);//Если строка является двоичным числом, возвращает его десятичное значение
+int bin_to_dec1(char str[]);
 bool is_hex_number(char str[]); //определяет, является ли строка шестнадцатеричным числом
 int hex_to_dec(char str[]);//Если строка является шестнадцатеричным числом, возвращает его десятичное значение
+int  hex_to_dec1(char hex[]);
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -210,6 +215,59 @@ bool is_bin_number(char str[])
 	return true;
 }
 
+char* dec_to_bin(int decimal)
+{
+	//1) Определим количество двоичных разрядов:
+	int capacity = 0;
+	int buffer = decimal;
+	for (; buffer; capacity++)
+	{
+		buffer /= 2;
+		if (capacity % 4 == 0)capacity++;
+	}
+	//2) Выделяем память под двоичное число:
+	char* bin = new char[capacity + 1] {};
+	//3) Получаем разряды двоичного числа, и сохраняем их в строку:
+	for (int i = 0, digit = 0; decimal; i++, digit++)
+	{
+		//if (i % 4 == 0)
+		//{
+		//	//bin[i] = ' ';
+		//}
+		//else
+		{
+			bin[i] = decimal % 2 + '0';	//Получаем младший разряд числа:
+			decimal /= 2;				//Убираем младший разряд из числа
+		}
+	}
+	insert_spaces(bin);
+	return bin;
+}
+int bin_to_dec1(char str[])
+{
+	if (!is_bin_number(str))return 0;
+#ifdef DEBUG
+	int decimal = 0;	//Конечное десятичное число
+	int weight = 1;		//Весовой коэффициент разряда 2^n;
+	int capacity = strlen(str);	//Разрядность двоичного числа
+	for (int i = capacity - 1; i >= 0; i--)
+	{
+		decimal +=
+	}
+#endif // DEBUG
+
+	int decimal = 0;
+	for (int i = 0; str[i]; i++)
+	{
+		if (str[i] != ' ')
+		{
+			decimal *= 2;
+			decimal += str[i] - '0';
+		}
+	}
+	return decimal;
+}
+
 int bin_to_dec(char str[])
 {
 	if (!is_bin_number(str))return 0;
@@ -265,4 +323,34 @@ int hex_to_dec(char str[])
 		}
 	}
 	return decimal;
+}
+int  hex_to_dec1(char hex[])
+{
+	if (!is_hex_number(hex))return 0;
+	int decimal = 0;
+	for (int i = 0; hex[i]; i++)
+	{
+		decimal *= 16;
+		if (hex[i] >= '0' && hex[i] <= '9')decimal += hex[i] - '0';
+		if (hex[i] >= 'A' && hex[i] <= 'F')decimal += hex[i] - 'A' + 10;
+		if (hex[i] >= 'a' && hex[i] <= 'f')decimal += hex[i] - 'a' + 10;
+	}
+	return decimal;
+}
+
+void insert_spaces(char str[])
+{
+	for (int i = 1, digit = 0; str[i]; i++)
+	{
+		if (digit % 4 == 0)
+		{
+			for (int j = strlen(str); j > i; j--)
+			{
+				str[j] = str[j - 1];
+			}
+			str[i] = ' ';
+			continue;
+		}
+		digit++;
+	}
 }
