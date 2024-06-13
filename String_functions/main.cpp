@@ -28,7 +28,7 @@ void main()
 	system("CHCP 1251");
 	system("CLS");
 	char strx[] = { 'H', 'o', 'p', ' ', 'l', 'a', 'i', ' ', 'l', 'a', 'l', 'a', ' ', 'l', 'a', 'i', 0};
-	char strm[] = "Hello";
+	char strm[] = "Helleh";
 	const int n = 256;
 	char strt[n];
 	cout << "Введите строку: ";
@@ -60,6 +60,16 @@ void main()
 	cout << strch << "(bin) = " << bin_to_dec(strch) << "(dec)" << endl;
 	cout << "Строка" << (is_hex_number(strch) ? "" : " НЕ") << " является шестнадцатеричным числом" << endl;
 	cout << strch << "(Hex) = " << hex_to_dec(strch) << "(Dec)" << endl;
+	cout << is_palindrome(str) << endl;
+	if (is_palindrome(strm))
+	{
+		cout << "Введенная строка - палиндром" << endl;
+	}
+	else
+	{
+		cout << "Введенная строка - НЕ палиндром" << endl;
+	}
+	cout << strm << endl;
 }
 
 void ASCII()
