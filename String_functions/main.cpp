@@ -27,7 +27,7 @@ void main()
 	setlocale(LC_ALL, "");
 	system("CHCP 1251");
 	system("CLS");
-	char strx[] = { 'H', 'o', 'p', ' ', 'l', 'a', 'i', 0};
+	char strx[] = { 'H', 'o', 'p', ' ', 'l', 'a', 'i', ' ', 'l', 'a', 'l', 'a', ' ', 'l', 'a', 'i', 0};
 	char strm[] = "Hello";
 	const int n = 256;
 	char strt[n];
