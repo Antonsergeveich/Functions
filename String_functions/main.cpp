@@ -12,6 +12,7 @@ void ASCII();
 int StrLen(char str[]);//Определяет длину строки
 void to_lower(char str[]); //переводит строку в нижний регистр
 void to_upper(char str[]); //переводит строку в верхний регистр
+void capitalize(char str[]);
 void shrink(char str[]);//удаляет из строки лишние пробелы
 void remove_symbol(char str[], char symbol);
 bool is_palindrome(char str[]); //Определяет, является ли строка палиндромом
@@ -19,16 +20,18 @@ bool is_int_number(char str[]);//определяет, является ли с�
 int to_int_number(char str[]);//Если строка является целым числом, возвращает его значение
 bool is_bin_number(char str[]);//определяет, является ли строка двоичным числом
 int bin_to_dec(char str[]);//Если строка является двоичным числом, возвращает его десятичное значение
-
-
+bool is_hex_number(char str[]); //определяет, является ли строка шестнадцатеричным числом
+int hex_to_dec(char str[]);//Если строка является шестнадцатеричным числом, возвращает его десятичное значение
 void main()
 {
 	setlocale(LC_ALL, "");
 	//ASCII();
 	char str[] = "Hello Pap  and   Mam";
-	char strch[] = "1000010101";
+	char strch[] = "FC99";
 	printf(str);
 	cout << endl;
+	/*capitalize(strch);
+	cout << str << endl;*/
 	cout << "Размер строки в Байтах:  " << sizeof(str) << endl;
 	cout << "Размер строки в символах:" << StrLen(str) << endl;
 	cout << endl;
@@ -44,6 +47,9 @@ void main()
 	cout << (is_int_number(strch) ? "Число" : "НЕ число") << endl;
 	cout << to_int_number(strch) << endl;
 	cout << "Строка " << (is_bin_number(strch) ? "" : "НЕ ") << "является двоичным числом" << endl;
+	cout << strch << "(bin) = " << bin_to_dec(strch) << "(dec)" << endl;
+	cout << "Строка" << (is_hex_number(strch) ? "" : " НЕ") << " является шестнадцатеричным числом" << endl;
+	cout << strch << "(Hex) = " << hex_to_dec(strch) << "(Dec)" << endl;
 }
 
 void ASCII()
@@ -82,6 +88,18 @@ void to_upper(char str[])
 			str[i] -= 32;
 		}
 		else if (str[i] == 'ё')str[i] -= 16;
+	}
+}
+
+void capitalize(char str[])
+{
+	to_lower(str);
+	if (str[0] >= 'a' && str[0] <= 'z' || str[0] >= 'а' && str[0] <= 'я')str[0] -= 32;
+	else if (str[0] == 'ё')str[0] -= 16;
+	for (int i = 1; str[i]; i++)
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'а' && str[i] <= 'я') && str[i - 1] == ' ')str[i] -= 32;
+		else if (str[i] == 'ё' && str[i - 1] == ' ')str[i] -= 16;
 	}
 }
 
@@ -184,6 +202,46 @@ int bin_to_dec(char str[])
 		{
 			decimal += (str[i] - 48) * weight;
 			weight *= 2;
+		}
+	}
+	return decimal;
+}
+
+bool is_hex_number(char str[])
+{
+	for (int i = str[0] == '0' && str[1] == 'x' ? 2 : 0; str[i]; i++)
+	{
+		if (
+			!(str[i] >= '0' && str[i] <= '9') &&
+			!(str[i] >= 'a' && str[i] <= 'f') &&
+			!(str[i] >= 'A' && str[i] <= 'F') &&
+			str[i] != ' '
+			)
+		{
+			return false;
+		}
+		if (str[i] == ' ' && str[i + 1] == ' ')return false;
+	}
+	return true;
+}
+
+int hex_to_dec(char str[])
+{
+	if (!is_hex_number(str))return 0;
+	int n = strlen(str);
+	char* buffer = new char[n + 1] {};
+	strcpy(buffer, str);
+	to_upper(buffer);
+
+	int decimal = 0;
+	int weight = 1;
+	for (int i = n - 1; i >= 0; i--)
+	{
+		if (buffer[i] == 'x' || buffer[i] == 'X')break;
+		if (buffer[i] != ' ')
+		{
+			decimal += (buffer[i] - (isdigit(buffer[i]) ? 48 : 55)) * weight;
+			weight *= 16;
 		}
 	}
 	return decimal;
