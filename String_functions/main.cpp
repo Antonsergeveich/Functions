@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 using std::cout;
@@ -6,10 +6,10 @@ using std::cin;
 using std::endl;
 
 void ASCII();
-void to_lower(char str[]); //ïåğåâîäèò ñòğîêó â íèæíèé ğåãèñòğ
-void to_upper(char str[]); //ïåğåâîäèò ñòğîêó â âåğõíèé ğåãèñòğ
-void shrink(char str[]);//óäàëÿåò èç ñòğîêè ëèøíèå ïğîáåëû
-
+void to_lower(char str[]); //Ğ¿ĞµÑ€ĞµĞ²Ğ¾Ğ´Ğ¸Ñ‚ ÑÑ‚Ñ€Ğ¾ĞºÑƒ Ğ² Ğ½Ğ¸Ğ¶Ğ½Ğ¸Ğ¹ Ñ€ĞµĞ³Ğ¸ÑÑ‚Ñ€
+void to_upper(char str[]); //Ğ¿ĞµÑ€ĞµĞ²Ğ¾Ğ´Ğ¸Ñ‚ ÑÑ‚Ñ€Ğ¾ĞºÑƒ Ğ² Ğ²ĞµÑ€Ñ…Ğ½Ğ¸Ğ¹ Ñ€ĞµĞ³Ğ¸ÑÑ‚Ñ€
+void shrink(char str[]);//ÑƒĞ´Ğ°Ğ»ÑĞµÑ‚ Ğ¸Ğ· ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ»Ğ¸ÑˆĞ½Ğ¸Ğµ Ğ¿Ñ€Ğ¾Ğ±ĞµĞ»Ñ‹
+void is_palindrome(char str[]); //ĞĞ¿Ñ€ĞµĞ´ĞµĞ»ÑĞµÑ‚, ÑĞ²Ğ»ÑĞµÑ‚ÑÑ Ğ»Ğ¸ ÑÑ‚Ñ€Ğ¾ĞºĞ° Ğ¿Ğ°Ğ»Ğ¸Ğ½Ğ´Ñ€Ğ¾Ğ¼Ğ¾Ğ¼
 
 void main()
 {
@@ -41,11 +41,11 @@ void to_lower(char str[])
 {
 	for (int i = 0; str[i]; i++)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z' || str[i] >= 'À' && str[i] <= 'ß')
+		if (str[i] >= 'A' && str[i] <= 'Z' || str[i] >= 'Ğ' && str[i] <= 'Ğ¯')
 		{
 			str[i] += 32;
 		}
-		else if (str[i] == '¨')str[i] += 16;
+		else if (str[i] == 'Ğ')str[i] += 16;
 	}
 }
 
@@ -53,11 +53,11 @@ void to_upper(char str[])
 {
 	for (int i = 0; str[i]; i++)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'à' && str[i] <= 'ÿ')
+		if (str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'Ğ°' && str[i] <= 'Ñ')
 		{
 			str[i] -= 32;
 		}
-		else if (str[i] == '¸')str[i] -= 16;
+		else if (str[i] == 'Ñ‘')str[i] -= 16;
 	}
 }
 
@@ -67,10 +67,16 @@ void shrink(char str[])
 	{
 		while (str[i] == ' ' && str[i + 1] == ' ')
 		{
-			for (int j = i; str[j]; j++)//Ñäâèãàåò ÷àñòü ñòğîêè âëåâî
+			for (int j = i; str[j]; j++)//Ğ¡Ğ´Ğ²Ğ¸Ğ³Ğ°ĞµÑ‚ Ñ‡Ğ°ÑÑ‚ÑŒ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ²Ğ»ĞµĞ²Ğ¾
 			{
 				str[j] = str[j + 1];
 			}
 		}
 	}
+}
+
+void is_palindrome(char str[])
+{
+
+
 }
