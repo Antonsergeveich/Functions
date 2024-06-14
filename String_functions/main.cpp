@@ -34,12 +34,18 @@ void main()
 	system("CLS");
 	char strx[] = { 'H', 'o', 'p', ' ', 'l', 'a', 'i', ' ', 'l', 'a', 'l', 'a', ' ', 'l', 'a', 'i', 0};
 	char strm[] = "Helleh";
-	const int n = 256;
-	char strt[n];
+	const int size = 256;
+	char strt[size];
 	cout << "Введите строку: ";
-	/*SetConsoleCP(1251);
-	cin >> strt;*/
-	cin.getline(strt, n);
+	/*SetConsoleCP(1251); 
+	SetConsoleOutputCP(1251);
+	cin >> strt;// при таком вводе если привысить количество символом размера массива то будет ошибка*/ 
+	cin.getline(strt, size); 
+	// функция getline(str,size) позволяет ввести строку с пробелами
+	// причём если при вводе с клавиатуры превысить количество символом выделенное размером массива
+	// то функция getline() выведит только количество символов по указанному размеру что не приведёт к ошибке
+	// так как в в функцию getline() мы передаём размер строки
+	cout << strt << endl;
 	//ASCII();
 	char str[] = "Hello Pap  and   Mam";
 	char strch[] = "FC99";
