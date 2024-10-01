@@ -22,10 +22,10 @@ bool is_bin_number(char str[]);//Определяет, является ли с�
 void insert_spaces(char str[]);//Вставляет пробелы;
 char* dec_to_bin(int decimal);//Из десятичногов двоичное
 int bin_to_dec(char str[]);//Если строка является двоичным числом, возвращает его десятичное значение
-int bin_to_dec1(char str[]);//Из двоичного в десятичное
+int bin_to_dec1(char str[]);
 bool is_hex_number(char str[]); //определяет, является ли строка шестнадцатеричным числом
 int hex_to_dec(char str[]);//Если строка является шестнадцатеричным числом, возвращает его десятичное значение
-int  hex_to_dec1(char hex[]);//Из шестнадцатиричного в десятичное
+int  hex_to_dec1(char hex[]);
 
 void main()
 {
@@ -255,7 +255,7 @@ char* dec_to_bin(int decimal)//Из десятичного в двоичное
 	insert_spaces(bin);
 	return bin;
 }
-int bin_to_dec1(char str[])//Из двоичного в десятичное
+int bin_to_dec1(char str[])
 {
 	if (!is_bin_number(str))return 0;
 #ifdef DEBUG
@@ -336,7 +336,7 @@ int hex_to_dec(char str[])//Если строка является шестна�
 	}
 	return decimal;
 }
-int  hex_to_dec1(char hex[])//Из шестнадцатиричного в десятичное
+int  hex_to_dec1(char hex[])
 {
 	if (!is_hex_number(hex))return 0;
 	int decimal = 0;
