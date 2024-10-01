@@ -14,18 +14,18 @@ void to_lower(char str[]); //переводит строку в нижний р�
 void to_upper(char str[]); //переводит строку в верхний регистр
 void capitalize(char str[]);//Первую букву каждого слова в предложении делает заглавной
 void shrink(char str[]);//Удаляет из строки лишние пробелы
-void remove_symbol(char str[], char symbol);
+void remove_symbol(char str[], char symbol);//Удаляет символ
 bool is_palindrome(char str[]); //Определяет, является ли строка палиндромом
 bool is_int_number(char str[]);//Определяет, является ли строка целым числом
 int to_int_number(char str[]);//Если строка является целым числом, возвращает его значение
 bool is_bin_number(char str[]);//Определяет, является ли строка двоичным числом
-void insert_spaces(char str[]);
-char* dec_to_bin(int decimal);
+void insert_spaces(char str[]);//Вставляет пробелы;
+char* dec_to_bin(int decimal);//Из десятичногов двоичное
 int bin_to_dec(char str[]);//Если строка является двоичным числом, возвращает его десятичное значение
-int bin_to_dec1(char str[]);
+int bin_to_dec1(char str[]);//Из двоичного в десятичное
 bool is_hex_number(char str[]); //определяет, является ли строка шестнадцатеричным числом
 int hex_to_dec(char str[]);//Если строка является шестнадцатеричным числом, возвращает его десятичное значение
-int  hex_to_dec1(char hex[]);
+int  hex_to_dec1(char hex[]);//Из шестнадцатиричного в десятичное
 
 void main()
 {
@@ -91,14 +91,14 @@ void ASCII()
 	}
 }
 
-int StrLen(char str[])
+int StrLen(char str[])//Определяет длину строки
 {
 	int i = 0;
 	for (; str[i]; i++);
 	return i;
 }
 
-void to_lower(char str[])
+void to_lower(char str[])//переводит строку в нижний регистр
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -110,7 +110,7 @@ void to_lower(char str[])
 	}
 }
 
-void to_upper(char str[])
+void to_upper(char str[])//переводит строку в верхний регистр
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -122,7 +122,7 @@ void to_upper(char str[])
 	}
 }
 
-void capitalize(char str[])
+void capitalize(char str[])//Первую букву каждого слова в предложении делает заглавной
 {
 	to_lower(str);
 	if (str[0] >= 'a' && str[0] <= 'z' || str[0] >= 'а' && str[0] <= 'я')str[0] -= 32;
@@ -134,7 +134,7 @@ void capitalize(char str[])
 	}
 }
 
-void shrink(char str[])
+void shrink(char str[])//Удаляет из строки лишние пробелы
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -148,7 +148,7 @@ void shrink(char str[])
 	}
 }
 
-void remove_symbol(char str[], char symbol)
+void remove_symbol(char str[], char symbol)//Удаляет символ
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -162,7 +162,7 @@ void remove_symbol(char str[], char symbol)
 	}
 }
 
-bool is_palindrome(char str[])
+bool is_palindrome(char str[])//Определяет, является ли строка палиндромом
 {
 	//Определяем длину строки
 	int size = StrLen(str);
@@ -186,7 +186,7 @@ bool is_palindrome(char str[])
 	return true;
 }
 
-bool is_int_number(char str[])
+bool is_int_number(char str[])//Определяет, является ли строка целым числом
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -196,7 +196,7 @@ bool is_int_number(char str[])
 	return true;
 }
 
-int to_int_number(char str[])
+int to_int_number(char str[])//Если строка является целым числом, возвращает его значение
 {
 	if (!is_int_number(str))return 0;
 	int number = 0;
@@ -209,7 +209,7 @@ int to_int_number(char str[])
 	return number;
 }
 
-bool is_bin_number(char str[])
+bool is_bin_number(char str[])//Определяет, является ли строка двоичным числом
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -221,7 +221,7 @@ bool is_bin_number(char str[])
 	return true;
 }
 
-char* dec_to_bin(int decimal)
+char* dec_to_bin(int decimal)//Из десятичного в двоичное
 {
 	//1) Определим количество двоичных разрядов:
 	int capacity = 0;
@@ -249,7 +249,7 @@ char* dec_to_bin(int decimal)
 	insert_spaces(bin);
 	return bin;
 }
-int bin_to_dec1(char str[])
+int bin_to_dec1(char str[])//Из двоичного в десятичное
 {
 	if (!is_bin_number(str))return 0;
 #ifdef DEBUG
@@ -274,7 +274,7 @@ int bin_to_dec1(char str[])
 	return decimal;
 }
 
-int bin_to_dec(char str[])
+int bin_to_dec(char str[])//Если строка является двоичным числом, возвращает его десятичное значение
 {
 	if (!is_bin_number(str))return 0;
 	int n = StrLen(str);//Разрядность числа
@@ -291,7 +291,7 @@ int bin_to_dec(char str[])
 	return decimal;
 }
 
-bool is_hex_number(char str[])
+bool is_hex_number(char str[])//определяет, является ли строка шестнадцатеричным числом
 {
 	for (int i = str[0] == '0' && str[1] == 'x' ? 2 : 0; str[i]; i++)
 	{
@@ -309,7 +309,7 @@ bool is_hex_number(char str[])
 	return true;
 }
 
-int hex_to_dec(char str[])
+int hex_to_dec(char str[])//Если строка является шестнадцатеричным числом, возвращает его десятичное значение
 {
 	if (!is_hex_number(str))return 0;
 	int n = strlen(str);
@@ -330,7 +330,7 @@ int hex_to_dec(char str[])
 	}
 	return decimal;
 }
-int  hex_to_dec1(char hex[])
+int  hex_to_dec1(char hex[])//Из шестнадцатиричного в десятичное
 {
 	if (!is_hex_number(hex))return 0;
 	int decimal = 0;
@@ -344,7 +344,7 @@ int  hex_to_dec1(char hex[])
 	return decimal;
 }
 
-void insert_spaces(char str[])
+void insert_spaces(char str[])//Вставляет пробелы;
 {
 	for (int i = 1, digit = 0; str[i]; i++)
 	{
